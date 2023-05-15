@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {HiPlus} from "react-icons/hi"
+import { HiPlus } from "react-icons/hi"
 
 const RightMenuItems = ({ menuItemsData }) => {
   console.log(menuItemsData)
@@ -10,15 +10,15 @@ const RightMenuItems = ({ menuItemsData }) => {
         <h3 className="uppercase font-semibold" onClick={() => setOpen(!open)}>{menuItemsData.title}</h3>
         {
           menuItemsData.subMenuItems?.length > 0 && (
-            <span><HiPlus/></span>
+            <span><HiPlus /></span>
           )
         }
       </div>
-      <ul className={"z-[100] bg-[#fff] list-none font-extralight" + (menuItemsData.depth >= 1 ?  " bg-[pink]" : "bg-[#fff]")}>
+      <ul className={"z-[100] bg-[#fff] list-none font-extralight" + (menuItemsData.depth >= 1 ? " bg-[pink]" : "bg-[#fff]")}>
         {menuItemsData?.subMenuItems &&
           open &&
           menuItemsData.subMenuItems.map((data, i) => (
-            <RightMenuItems menuItemsData={data} />
+            <RightMenuItems key={i} menuItemsData={data} />
           ))}
       </ul>
     </li>
