@@ -5,19 +5,19 @@ const RightMenuItems = ({ menuItemsData }) => {
   console.log(menuItemsData)
   const [open, setOpen] = useState(false);
   return (
-    <li className="relative cursor-pointer px-3 py-3">
+    <li className="relative cursor-pointer p-3">
       <div className="flex justify-between items-center">
-        <h3 className="uppercase font-semibold" onClick={() => setOpen(!open)}>{menuItemsData.title}</h3>
+        <h3 className="uppercase font-semibold" onClick={() => setOpen(!open)}>{menuItemsData.name}</h3>
         {
-          menuItemsData.subMenuItems?.length > 0 && (
+          menuItemsData.category_children?.length > 0 && (
             <span><HiPlus /></span>
           )
         }
       </div>
-      <ul className={"z-[100] bg-[#fff] list-none font-extralight" + (menuItemsData.depth >= 1 ? " bg-[pink]" : "bg-[#fff]")}>
-        {menuItemsData?.subMenuItems &&
+      <ul className={"z-[100] bg-[#fff] list-none font-extralight"}>
+        {menuItemsData?.category_children &&
           open &&
-          menuItemsData.subMenuItems.map((data, i) => (
+          menuItemsData.category_children.map((data, i) => (
             <RightMenuItems key={i} menuItemsData={data} />
           ))}
       </ul>

@@ -1,4 +1,4 @@
-import Head from "next/head"
+// import Head from "@modules/common/components/head"
 // import FeaturedProducts from "@modules/home/components/featured-products"
 // import Hero from "@modules/home/components/hero"
 // import Layout from "@modules/layout/templates"
@@ -31,7 +31,7 @@ import { BsFillPlusCircleFill } from "react-icons/bs"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/pagination"
-import { Pagination } from "swiper";
+import { Pagination } from "swiper"
 import Navbar from "@/components/Navbar/Navbar"
 
 const Home = () => {
@@ -58,10 +58,10 @@ const Home = () => {
           <h3 className="font-semibold tracking-[4px] text-white text-[1.2rem]">
             Welcome to Fashion
           </h3>
-          <h1 className="text-[2.2rem] text-red-400 font-bold uppercase md:text-[4rem]">
+          <h1 className="text-[2.2rem] text-[#870827] font-bold uppercase md:text-[4rem]">
             Women Fashion
           </h1>
-          <div className="w-fit px-10 py-2 bg-red-400 text-white">Shop</div>
+          <div className="w-fit px-10 py-2 bg-[#870827] text-white">Shop</div>
         </div>
       )
     } else {
@@ -70,23 +70,27 @@ const Home = () => {
           <h3 className="font-semibold tracking-[4px] text-white text-[1.2rem]">
             Welcome to Fashion
           </h3>
-          <h1 className="text-[2.2rem] text-red-400 font-bold uppercase md:text-[4rem]">
+          <h1 className="text-[2.2rem] text-[#870827] font-bold uppercase md:text-[4rem]">
             Men Fashion
           </h1>
-          <div className="w-fit px-10 py-2 bg-red-400 text-white">Shop</div>
+          <div className="w-fit px-10 py-2 bg-[#870827] text-white">Shop</div>
         </div>
       )
     }
   }
 
   // Top Collection Data
-  const topCollectionProducts = [
+  const [currTopCollectionCategory, setCurrTopCollectionCategory] =
+    useState("Best Seller")
+
+  const allProducts = [
     {
       img1: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=386&q=80",
       img2: "https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
       currImg: 1,
       name: "Black Dress",
       price: "$500",
+      category: "Best Seller",
     },
     {
       img1: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=386&q=80",
@@ -94,6 +98,7 @@ const Home = () => {
       currImg: 1,
       name: "Black Dress",
       price: "$500",
+      category: "Best Seller",
     },
     {
       img1: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=386&q=80",
@@ -101,6 +106,7 @@ const Home = () => {
       currImg: 1,
       name: "Black Dress",
       price: "$500",
+      category: "Featured",
     },
     {
       img1: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=386&q=80",
@@ -108,6 +114,7 @@ const Home = () => {
       currImg: 1,
       name: "Black Dress",
       price: "$500",
+      category: "Recommended",
     },
     {
       img1: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=386&q=80",
@@ -115,6 +122,7 @@ const Home = () => {
       currImg: 1,
       name: "Black Dress",
       price: "$500",
+      category: "Recommended",
     },
     {
       img1: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=386&q=80",
@@ -122,6 +130,7 @@ const Home = () => {
       currImg: 1,
       name: "Black Dress",
       price: "$500",
+      category: "Best Seller",
     },
     {
       img1: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=386&q=80",
@@ -129,6 +138,7 @@ const Home = () => {
       currImg: 1,
       name: "Black Dress",
       price: "$500",
+      category: "Best Seller",
     },
     {
       img1: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=386&q=80",
@@ -136,28 +146,46 @@ const Home = () => {
       currImg: 1,
       name: "Black Dress",
       price: "$500",
+      category: "Best Sellers",
     },
   ]
+
+  const [topCollectionProducts, setTopCollectionProducts] = useState([])
+
+  const handleTopCollectionCategoryChange = (category) => {
+    setTopCollectionProducts(
+      allProducts.filter((collection) => {
+        return collection.category === category
+      })
+    )
+  }
+
+  useEffect(() => {
+    setTopCollectionProducts(
+      allProducts.filter((product) => {
+        return product.category === "Best Seller"
+      })
+    )
+  }, [])
+
   return (
-    <div className="w-full max-h-[100vh] overflow-y-scroll overflow-x-hidden bg-center bg-cover bg-[url('https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80')]">
-      <Head
+    <div className="w-full overflow-x-hidden">
+      {/* <Head
         title="Home"
         description="Shop all available models only at the ACME. Worldwide Shipping. Secure Payment."
-      />
+      /> */}
       {/* <Hero /> */}
       {/* <FeaturedProducts /> */}
 
       {/* Code start */}
 
       {/* Navbar */}
-      {/* <Navbar/> */}
-
       <Navbar />
 
       <div>
         {/* Header */}
-        <div className="flex justify-between items-center px-14 py-3 text-sm bg-red-400 text-white">
-          <div className="flex justify-between items-center gap-6">
+        <div className="hidden justify-between items-center px-14 py-2 text-sm bg-[#870827] text-white sm:flex">
+          <div className="hidden md:flex justify-between items-center gap-6">
             <p>Welcome to Our store Multikart</p>
             <p>Call Us: 123-456-7890</p>
           </div>
@@ -167,6 +195,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* <Navbar /> */}
 
       {/* Hero Slider */}
       <div className="h-[400px] md:h-[600px] relative group overflow-hidden">
@@ -195,7 +225,7 @@ const Home = () => {
       <div className="flex w-full gap-3 items-center justify-between flex-col px-14 py-[6rem] bg-white sm:flex-row px-14">
         <div className="flex flex-center items-end w-[97%] h-[240px] bg-center bg-cover bg-[url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')] sm:w-[60%]">
           <div className="bg-white px-2 py-4 mx-auto text-center w-[90%] shadow-md -translate-y-8 sm:translate-y-4">
-            <h3 className="text-red-400 text-xl font-bold">
+            <h3 className="text-[#870827] text-xl font-bold">
               Casual Collection
             </h3>
             <p>Festival Sale</p>
@@ -204,7 +234,7 @@ const Home = () => {
 
         <div className="flex flex-center items-end w-[97%] h-[240px] bg-center bg-cover bg-[url('https://images.unsplash.com/photo-1591980607210-8ea99bee96f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80')] sm:w-[60%]">
           <div className="bg-white px-2 py-4 mx-auto text-center w-[90%] shadow-md -translate-y-8 sm:translate-y-4">
-            <h3 className="text-red-400 text-xl font-bold">
+            <h3 className="text-[#870827] text-xl font-bold">
               Going Out Collection
             </h3>
             <p>Festival Sale</p>
@@ -212,30 +242,75 @@ const Home = () => {
         </div>
         <div className="flex flex-center items-end w-[97%] h-[240px] bg-center bg-cover bg-[url('https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1215&q=80')] sm:w-[60%]">
           <div className="bg-white px-2 py-4 mx-auto text-center w-[90%] shadow-md -translate-y-8 sm:translate-y-4">
-            <h3 className="text-red-400 text-xl font-bold">
+            <h3 className="text-[#870827] text-xl font-bold">
               Shoes and Sandle
             </h3>
             <p>New Collection</p>
           </div>
         </div>
-
       </div>
 
       {/* Top Collection */}
       <div className="flex items-center justify-center flex-col py-10 w-full bg-white m-0 relative">
         <div className="flex items-center justify-center flex-col w-full">
           <h3 className="text-lg w-full text-center">Special Offer</h3>
-          <h1 className="text-[30px] sm:text-[36px] text-center font-bold w-full">TOP COLLECTION</h1>
-          <div className="w-[200px] h-[1px] bg-red-400 flex items-center justify-center gap-2">
+          <h1 className="text-[30px] sm:text-[36px] text-center font-bold w-full">
+            TOP COLLECTION
+          </h1>
+          <div className="w-[200px] h-[1px] bg-[#870827] flex items-center justify-center gap-2">
             <div className="topcollection-heading-line"></div>
             <div className="topcollection-heading-line"></div>
             <div className="topcollection-heading-line"></div>
             <div className="topcollection-heading-line"></div>
           </div>
         </div>
-        <div className="grid grid-cols-1 grid-rows-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-12 gap-5 w-[90%]">
-          {topCollectionProducts.map((product, i) => (
-            <div key={i} className="relative h-[550px] w-[100%] shadow-md rounded-md cursor-pointer">
+        <div className="flex flex-col md:flex-row items-center gap-8 mt-7 text-xl cursor-pointer">
+          <p
+            className={
+              "pr-3" +
+              (currTopCollectionCategory === "Best Seller"
+                ? " text-[#870827]"
+                : " text-[#000]")
+            }
+            onClick={() => {
+              setCurrTopCollectionCategory("Best Seller")
+              handleTopCollectionCategoryChange("Best Seller")
+            }}
+          >
+            Best Seller
+          </p>
+          <p
+            className={
+              "pr-3" +
+              (currTopCollectionCategory === "Featured"
+                ? " text-[#870827]"
+                : " text-[#000]")
+            }
+            onClick={() => {
+              setCurrTopCollectionCategory("Featured")
+              handleTopCollectionCategoryChange("Featured")
+            }}
+          >
+            Featured
+          </p>
+          <p
+            className={
+              "pr-3" +
+              (currTopCollectionCategory === "Recommended"
+                ? " text-[#870827]"
+                : " text-[#000]")
+            }
+            onClick={() => {
+              setCurrTopCollectionCategory("Recommended")
+              handleTopCollectionCategoryChange("Recommended")
+            }}
+          >
+            Recommended
+          </p>
+        </div>
+        {/* <div className="grid grid-cols-1 grid-rows-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-12 gap-5 w-[90%]">
+          {topCollectionProducts.map((product) => (
+            <div className="relative h-[550px] w-[100%] shadow-md rounded-md cursor-pointer">
               <div className="group relative w-[100%] h-3/4 overflow-hidden">
                 <img
                   className="w-[100%] h-full object-cover rounded-md transition duration-300 ease-in-out"
@@ -259,33 +334,67 @@ const Home = () => {
               </div>
             </div>
           ))}
+        </div> */}
+        <div className="grid grid-cols-1 grid-rows-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-12 w-[90%]">
+          {topCollectionProducts.map((product, index) => (
+            <div key={index} className="relative h-[550px] shadow-md rounded-md cursor-pointer">
+              <div className="group relative h-3/4 overflow-hidden">
+                <img
+                  className="w-full h-full object-cover rounded-md transition duration-300 ease-in-out"
+                  src={product.img1}
+                />
+                <img
+                  className="w-full h-full object-cover absolute top-0 left-0 -translate-x-full group-hover:translate-x-0 rounded-md transition duration-500 ease-in-out"
+                  src={product.img2}
+                />
+              </div>
+              <div className="text-center">
+                <h3 className="text-md">{product.name}</h3>
+                <h1 className="text-xl font-semibold">{product.price}</h1>
+                <div className="flex justify-center items-center gap-3">
+                  <div className="w-3 h-3 rounded-full bg-blue-200"></div>
+                  <div className="w-3 h-3 rounded-full bg-pink-200"></div>
+                  <div className="w-3 h-3 rounded-full bg-gray-400"></div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
+        <button className="bg-[#870827] hover:bg-[#870827]/50 transition-all p-2 border-none outline-none text-[#fff] mt-12 rounded-md">
+          Explore more
+        </button>
       </div>
 
-      <div className="flex items-center justify-center w-full px-[8rem] py-[10rem]">
+      {/* Arts Collections */}
+      <div className="flex items-center justify-center w-full px-[8rem] py-[10rem] bg-[url('https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80')] bg-fixed">
         <div className="flex flex-col items-center justify-center bg-gray-50/50 w-3/4 py-8">
-          <h1 className="text-red-400 font-bold text-[5rem] uppercase">Kids</h1>
+          <h1 className="text-[#870827] font-bold text-[5rem] uppercase">
+            Kids
+          </h1>
           <h1 className=" font-bold text-[5rem] uppercase">Fashion Trends</h1>
-          <h3 className="font-semibold tracking-[4px] text-gray-700 text-[1.5rem]">Special Offer</h3>
-          <div className="w-fit px-10 py-2 bg-red-400 text-white">Shop</div>
+          <h3 className="font-semibold tracking-[4px] text-gray-700 text-[1.5rem]">
+            Special Offer
+          </h3>
+          <div className="w-fit px-10 py-2 bg-[#870827] text-white">Shop</div>
         </div>
       </div>
 
-      {/* Special Collections */}
       <div className="flex items-center justify-center flex-col py-10 w-full bg-white">
         <div className="flex items-center justify-center flex-col w-2/4">
           <h3 className="text-lg w-full text-center">Special Offer</h3>
-          <h1 className="text-[30px] sm:text-[36px] text-center font-bold w-full">TOP COLLECTION</h1>
-          <div className="w-1/4 h-[1px] bg-red-400 flex items-center justify-center gap-2">
+          <h1 className="text-[30px] sm:text-[36px] text-center font-bold w-full">
+            ARTS COLLECTION
+          </h1>
+          <div className="w-[200px] h-[1px] bg-[#870827] flex items-center justify-center gap-2">
             <div className="topcollection-heading-line"></div>
             <div className="topcollection-heading-line"></div>
             <div className="topcollection-heading-line"></div>
             <div className="topcollection-heading-line"></div>
           </div>
         </div>
-        <div className="grid grid-cols-1 grid-rows-2 mt-12 gap-5 w-[80%] place-items-center md:grid-cols-2 lg:grid-cols-3">
-          {topCollectionProducts.map((product, i) => (
-            <div key={i} className="relative h-[180px] w-[95%] shadow-md rounded-md cursor-pointer flex">
+        <div className="grid grid-cols-1 grid-rows-auto mt-12 gap-5 w-[80%] place-items-center md:grid-cols-2 lg:grid-cols-3">
+          {topCollectionProducts.map((product, index) => (
+            <div key={index} className="relative h-[180px] w-[95%] shadow-md rounded-md cursor-pointer flex">
               <div className="group relative w-[45%] h-full">
                 <img
                   className="w-full h-full object-cover rounded-md transition duration-300 ease-in-out"
@@ -317,33 +426,170 @@ const Home = () => {
             </div>
           ))}
         </div>
+        <button className="bg-[#870827] hover:bg-[#870827]/50 transition-all p-2 border-none outline-none text-[#fff] mt-12 rounded-md">
+          Explore more
+        </button>
+      </div>
+
+      {/* Handicraft Collection */}
+      <div className="flex items-center justify-center w-full px-[8rem] py-[10rem] bg-[url('https://images.unsplash.com/photo-1462392246754-28dfa2df8e6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')] bg-fixed">
+        <div className="flex flex-col items-center justify-center bg-gray-50/50 w-3/4 py-8">
+          <h1 className="text-[#870827] font-bold text-[5rem] uppercase">
+            Kids
+          </h1>
+          <h1 className=" font-bold text-[5rem] uppercase">Fashion Trends</h1>
+          <h3 className="font-semibold tracking-[4px] text-gray-700 text-[1.5rem]">
+            Special Offer
+          </h3>
+          <div className="w-fit px-10 py-2 bg-[#870827] text-white">Shop</div>
+        </div>
+      </div>
+
+      <div className="flex items-center justify-center flex-col py-10 w-full bg-white">
+        <div className="flex items-center justify-center flex-col w-2/4">
+          <h3 className="text-lg w-full text-center">Special Offer</h3>
+          <h1 className="text-[30px] sm:text-[36px] text-center font-bold w-full">
+            HANDICRAFT COLLECTION
+          </h1>
+          <div className="w-[200px] h-[1px] bg-[#870827] flex items-center justify-center gap-2">
+            <div className="topcollection-heading-line"></div>
+            <div className="topcollection-heading-line"></div>
+            <div className="topcollection-heading-line"></div>
+            <div className="topcollection-heading-line"></div>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 grid-rows-auto mt-12 gap-5 w-[80%] place-items-center md:grid-cols-2 lg:grid-cols-3">
+          {topCollectionProducts.map((product, index) => (
+            <div key={index} className="relative h-[180px] w-[95%] shadow-md rounded-md cursor-pointer flex">
+              <div className="group relative w-[45%] h-full">
+                <img
+                  className="w-full h-full object-cover rounded-md transition duration-300 ease-in-out"
+                  src={product.img1}
+                />
+                <img
+                  className="w-full h-full object-cover absolute top-0 left-0 opacity-0 group-hover:opacity-100 rounded-md transition duration-300 ease-in-out"
+                  src={product.img2}
+                />
+              </div>
+              <div className="w-[55%]">
+                <h3 className="text-md ml-2">{product.name}</h3>
+                <h1 className="text-xl font-semibold ml-2">{product.price}</h1>
+                <div className="flex items-center gap-3 border-t-2 ml-2 pt-3">
+                  <span>
+                    <BsFillCartFill />
+                  </span>
+                  <span>
+                    <AiFillHeart />
+                  </span>
+                  <span>
+                    <BsFillPlusCircleFill />
+                  </span>
+                  <span>
+                    <RiLoader3Line />
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <button className="bg-[#870827] hover:bg-[#870827]/60 p-2 border-none outline-none text-[#fff] mt-12 rounded-md">
+          Explore more
+        </button>
+      </div>
+
+      {/* Handloom Collection */}
+      <div className="flex items-center justify-center w-full px-[8rem] py-[10rem] bg-[url('https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')] bg-fixed">
+        <div className="flex flex-col items-center justify-center bg-gray-50/50 w-3/4 py-8">
+          <h1 className="text-[#870827] font-bold text-[5rem] uppercase">
+            Kids
+          </h1>
+          <h1 className=" font-bold text-[5rem] uppercase">Fashion Trends</h1>
+          <h3 className="font-semibold tracking-[4px] text-gray-700 text-[1.5rem]">
+            Special Offer
+          </h3>
+          <div className="w-fit px-10 py-2 bg-[#870827] text-white">Shop</div>
+        </div>
+      </div>
+
+      <div className="flex items-center justify-center flex-col py-10 w-full bg-white">
+        <div className="flex items-center justify-center flex-col w-2/4">
+          <h3 className="text-lg w-full text-center">Special Offer</h3>
+          <h1 className="text-[30px] sm:text-[36px] text-center font-bold w-full">
+            HANDLOOM COLLECTION
+          </h1>
+          <div className="w-[200px] h-[1px] bg-[#870827] flex items-center justify-center gap-2">
+            <div className="topcollection-heading-line"></div>
+            <div className="topcollection-heading-line"></div>
+            <div className="topcollection-heading-line"></div>
+            <div className="topcollection-heading-line"></div>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 grid-rows-auto mt-12 gap-5 w-[80%] place-items-center md:grid-cols-2 lg:grid-cols-3">
+          {topCollectionProducts.map((product, index) => (
+            <div key={index} className="relative h-[180px] w-[95%] shadow-md rounded-md cursor-pointer flex">
+              <div className="group relative w-[45%] h-full">
+                <img
+                  className="w-full h-full object-cover rounded-md transition duration-300 ease-in-out"
+                  src={product.img1}
+                />
+                <img
+                  className="w-full h-full object-cover absolute top-0 left-0 opacity-0 group-hover:opacity-100 rounded-md transition duration-300 ease-in-out"
+                  src={product.img2}
+                />
+              </div>
+              <div className="w-[55%]">
+                <h3 className="text-md ml-2">{product.name}</h3>
+                <h1 className="text-xl font-semibold ml-2">{product.price}</h1>
+                <div className="flex items-center gap-3 border-t-2 ml-2 pt-3">
+                  <span>
+                    <BsFillCartFill />
+                  </span>
+                  <span>
+                    <AiFillHeart />
+                  </span>
+                  <span>
+                    <BsFillPlusCircleFill />
+                  </span>
+                  <span>
+                    <RiLoader3Line />
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <button className="bg-[#870827] hover:bg-[#870827]/50 transition-all p-2 border-none outline-none text-[#fff] mt-12 rounded-md">
+          Explore more
+        </button>
       </div>
 
       {/* services */}
       <div className="grid items-center grid-cols-1 px-14 py-16 border-t-2 border-b-2 bg-white md:grid-cols-2 lg:grid-cols-4">
         <div className="flex items-center flex-col mb-14 md:mb-20 lg:mb-0">
-          <span className="text-[60px] text-red-400 lg:mb-0">
+          <span className="text-[60px] text-[#870827] lg:mb-0">
             <RiTruckLine />
           </span>
           <h3 className="text-lg w-full text-center">Special Offer</h3>
-          <p className="text-[30px] sm:text-[36px] text-center font-bold w-full">top collection</p>
+          <p className="text-[30px] sm:text-[36px] text-center font-bold w-full">
+            top collection
+          </p>
         </div>
         <div className="flex items-center flex-col mb-14 md:mb-20 lg:mb-0">
-          <span className="text-[60px] text-red-400">
+          <span className="text-[60px] text-[#870827]">
             <AiOutlineClockCircle />
           </span>
           <h3 className="font-bold">FREE SHIPPING</h3>
           <p className="font-sm">free shipping worldwide</p>
         </div>
         <div className="flex items-center flex-col mb-14 md:mb-0">
-          <span className="text-[60px] text-red-400">
+          <span className="text-[60px] text-[#870827]">
             <GrAnnounce />
           </span>
           <h3 className="font-bold">FREE SHIPPING</h3>
           <p className="font-sm">free shipping worldwide</p>
         </div>
         <div className="flex items-center flex-col mb-14 md:mb-0">
-          <span className="text-[60px] text-red-400">
+          <span className="text-[60px] text-[#870827]">
             <AiFillCreditCard />
           </span>
           <h3 className="font-bold">FREE SHIPPING</h3>
@@ -356,11 +602,11 @@ const Home = () => {
         <div className="flex items-center justify-center flex-col w-2/4 my-10">
           <h3 className="text-lg">Our Collection</h3>
           <h1 className="text-[38px] font-bold">SPECIAL PRODUCTS</h1>
-          <div className="w-1/4 h-[1px] bg-red-400 flex items-center justify-center gap-2">
-            <div className="w-[10px] h-[10px] bg-red-400"></div>
-            <div className="w-[10px] h-[10px] bg-red-400"></div>
-            <div className="w-[10px] h-[10px] bg-red-400"></div>
-            <div className="w-[10px] h-[10px] bg-red-400"></div>
+          <div className="w-1/4 h-[1px] bg-[#870827] flex items-center justify-center gap-2">
+            <div className="w-[10px] h-[10px] bg-[#870827]"></div>
+            <div className="w-[10px] h-[10px] bg-[#870827]"></div>
+            <div className="w-[10px] h-[10px] bg-[#870827]"></div>
+            <div className="w-[10px] h-[10px] bg-[#870827]"></div>
           </div>
         </div>
 
@@ -378,52 +624,52 @@ const Home = () => {
               <div className="relative w-full h-[250px] bg-center bg-cover bg-[url('https://images.unsplash.com/photo-1632907706046-49b7eba9c62d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')]">
                 <div className="absolute w-full h-full top-0 left-0 grid grid-rows-3 grid-cols-4 group">
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[20ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[20ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[40ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[40ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[60ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[60ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[80ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[80ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[100ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[100ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[120ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[120ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[140ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[140ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[160ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[160ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[180ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[180ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[200ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[200ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[220ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[220ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[240ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[240ms]`}
                   ></div>
                 </div>
               </div>
               <div className="flex items-center flex-col relative mt-3">
-                <h4 className="text-red-400 text-lg">29 January 2022</h4>
+                <h4 className="text-[#870827] text-lg">29 January 2022</h4>
                 <h3 className="text-[1.2rem] font-bold uppercase">
                   Lorem ipsum dola Lorem ipsum dola
                 </h3>
                 <h3 className="text-[1.2rem] font-bold uppercase">
                   Lorm Ipsum dolar
                 </h3>
-                <div className="w-[2/4] h-[2px] bg-red-400"></div>
+                <div className="w-[2/4] h-[2px] bg-[#870827]"></div>
                 <p className="text-md text-gray-400 font-semibold">
                   by by John Dio, 2 comment
                 </p>
@@ -434,52 +680,52 @@ const Home = () => {
               <div className="relative w-full h-[250px] bg-center bg-cover bg-[url('https://images.unsplash.com/photo-1632907706046-49b7eba9c62d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')]">
                 <div className="absolute w-full h-full top-0 left-0 grid grid-rows-3 grid-cols-4 group">
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[20ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[20ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[40ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[40ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[60ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[60ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[80ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[80ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[100ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[100ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[120ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[120ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[140ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[140ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[160ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[160ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[180ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[180ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[200ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[200ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[220ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[220ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[240ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[240ms]`}
                   ></div>
                 </div>
               </div>
               <div className="flex items-center flex-col relative mt-3">
-                <h4 className="text-red-400 text-lg">29 January 2022</h4>
+                <h4 className="text-[#870827] text-lg">29 January 2022</h4>
                 <h3 className="text-[1.2rem] font-bold uppercase">
                   Lorem ipsum dola Lorem ipsum dola
                 </h3>
                 <h3 className="text-[1.2rem] font-bold uppercase">
                   Lorm Ipsum dolar
                 </h3>
-                <div className="w-[2/4] h-[2px] bg-red-400"></div>
+                <div className="w-[2/4] h-[2px] bg-[#870827]"></div>
                 <p className="text-md text-gray-400 font-semibold">
                   by by John Dio, 2 comment
                 </p>
@@ -490,52 +736,52 @@ const Home = () => {
               <div className="relative w-full h-[250px] bg-center bg-cover bg-[url('https://images.unsplash.com/photo-1632907706046-49b7eba9c62d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')]">
                 <div className="absolute w-full h-full top-0 left-0 grid grid-rows-3 grid-cols-4 group">
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[20ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[20ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[40ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[40ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[60ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[60ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[80ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[80ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[100ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[100ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[120ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[120ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[140ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[140ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[160ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[160ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[180ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[180ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[200ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[200ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[220ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[220ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[240ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[240ms]`}
                   ></div>
                 </div>
               </div>
               <div className="flex items-center flex-col relative mt-3">
-                <h4 className="text-red-400 text-lg">29 January 2022</h4>
+                <h4 className="text-[#870827] text-lg">29 January 2022</h4>
                 <h3 className="text-[1.2rem] font-bold uppercase">
                   Lorem ipsum dola Lorem ipsum dola
                 </h3>
                 <h3 className="text-[1.2rem] font-bold uppercase">
                   Lorm Ipsum dolar
                 </h3>
-                <div className="w-[2/4] h-[2px] bg-red-400"></div>
+                <div className="w-[2/4] h-[2px] bg-[#870827]"></div>
                 <p className="text-md text-gray-400 font-semibold">
                   by by John Dio, 2 comment
                 </p>
@@ -546,52 +792,52 @@ const Home = () => {
               <div className="relative w-full h-[250px] bg-center bg-cover bg-[url('https://images.unsplash.com/photo-1632907706046-49b7eba9c62d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')]">
                 <div className="absolute w-full h-full top-0 left-0 grid grid-rows-3 grid-cols-4 group">
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[20ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[20ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[40ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[40ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[60ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[60ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[80ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[80ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[100ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[100ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[120ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[120ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[140ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[140ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[160ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[160ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[180ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[180ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[200ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[200ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[220ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[220ms]`}
                   ></div>
                   <div
-                    className={`h-full w-full bg-red-400/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[240ms]`}
+                    className={`h-full w-full bg-[#870827]/50 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out delay-[240ms]`}
                   ></div>
                 </div>
               </div>
               <div className="flex items-center flex-col relative mt-3">
-                <h4 className="text-red-400 text-lg">29 January 2022</h4>
+                <h4 className="text-[#870827] text-lg">29 January 2022</h4>
                 <h3 className="text-[1.2rem] font-bold uppercase">
                   Lorem ipsum dola Lorem ipsum dola
                 </h3>
                 <h3 className="text-[1.2rem] font-bold uppercase">
                   Lorm Ipsum dolar
                 </h3>
-                <div className="w-[2/4] h-[2px] bg-red-400"></div>
+                <div className="w-[2/4] h-[2px] bg-[#870827]"></div>
                 <p className="text-md text-gray-400 font-semibold">
                   by by John Dio, 2 comment
                 </p>
@@ -610,7 +856,7 @@ const Home = () => {
               className="w-full h-full object-cover"
               src="https://images.unsplash.com/photo-1597175848600-5ef8d4d15c30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
             />
-            <div className="absolute top-0 left-0 w-full h-full bg-red-400/70 opacity-0 group-hover:opacity-100 transition duration-150 ease-in-out"></div>
+            <div className="absolute top-0 left-0 w-full h-full bg-[#870827]/70 opacity-0 group-hover:opacity-100 transition duration-150 ease-in-out"></div>
             <span className="absolute top-[50%] left-[50%] text-[8rem] text-white opacity-0 translate-x-[-50%] translate-y-[-50%] group-hover:-rotate-90 group-hover:scale-50 group-hover:opacity-100 transition duration-[0.7s] ease-in-out">
               <BsInstagram />
             </span>
@@ -620,7 +866,7 @@ const Home = () => {
               className="w-full h-full object-cover"
               src="https://images.unsplash.com/photo-1597175848600-5ef8d4d15c30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
             />
-            <div className="absolute top-0 left-0 w-full h-full bg-red-400/70 opacity-0 group-hover:opacity-100 transition duration-150 ease-in-out"></div>
+            <div className="absolute top-0 left-0 w-full h-full bg-[#870827]/70 opacity-0 group-hover:opacity-100 transition duration-150 ease-in-out"></div>
             <span className="absolute top-[50%] left-[50%] text-[8rem] text-white opacity-0 translate-x-[-50%] translate-y-[-50%] group-hover:-rotate-90 group-hover:scale-50 group-hover:opacity-100 transition duration-[0.7s] ease-in-out">
               <BsInstagram />
             </span>
@@ -630,7 +876,7 @@ const Home = () => {
               className="w-full h-full object-cover"
               src="https://images.unsplash.com/photo-1597175848600-5ef8d4d15c30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
             />
-            <div className="absolute top-0 left-0 w-full h-full bg-red-400/70 opacity-0 group-hover:opacity-100 transition duration-150 ease-in-out"></div>
+            <div className="absolute top-0 left-0 w-full h-full bg-[#870827]/70 opacity-0 group-hover:opacity-100 transition duration-150 ease-in-out"></div>
             <span className="absolute top-[50%] left-[50%] text-[8rem] text-white opacity-0 translate-x-[-50%] translate-y-[-50%] group-hover:-rotate-90 group-hover:scale-50 group-hover:opacity-100 transition duration-[0.7s] ease-in-out">
               <BsInstagram />
             </span>
@@ -640,7 +886,7 @@ const Home = () => {
               className="w-full h-full object-cover"
               src="https://images.unsplash.com/photo-1597175848600-5ef8d4d15c30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
             />
-            <div className="absolute top-0 left-0 w-full h-full bg-red-400/70 opacity-0 group-hover:opacity-100 transition duration-150 ease-in-out"></div>
+            <div className="absolute top-0 left-0 w-full h-full bg-[#870827]/70 opacity-0 group-hover:opacity-100 transition duration-150 ease-in-out"></div>
             <span className="absolute top-[50%] left-[50%] text-[8rem] text-white opacity-0 translate-x-[-50%] translate-y-[-50%] group-hover:-rotate-90 group-hover:scale-50 group-hover:opacity-100 transition duration-[0.7s] ease-in-out">
               <BsInstagram />
             </span>
@@ -650,7 +896,7 @@ const Home = () => {
               className="w-full h-full object-cover"
               src="https://images.unsplash.com/photo-1597175848600-5ef8d4d15c30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
             />
-            <div className="absolute top-0 left-0 w-full h-full bg-red-400/70 opacity-0 group-hover:opacity-100 transition duration-150 ease-in-out"></div>
+            <div className="absolute top-0 left-0 w-full h-full bg-[#870827]/70 opacity-0 group-hover:opacity-100 transition duration-150 ease-in-out"></div>
             <span className="absolute top-[50%] left-[50%] text-[8rem] text-white opacity-0 translate-x-[-50%] translate-y-[-50%] group-hover:-rotate-90 group-hover:scale-50 group-hover:opacity-100 transition duration-[0.7s] ease-in-out">
               <BsInstagram />
             </span>
@@ -700,30 +946,30 @@ const Home = () => {
       </div>
 
       {/* newsletter */}
-      <div className="flex flex-col justify-between items-center px-14 py-7 bg-red-400 text-white md:flex-row">
-        <div>
-          <h3 className="text-md font-bold uppercase">Know it all first</h3>
-          <p className="text-sm">
+      <div className="relative flex flex-col justify-between items-center px-3 lg:px-14 py-7 bg-[#870827] text-white lg:flex-row lg:justify-center">
+        <div className="w-full lg:w-2/4">
+          <h3 className="text-md font-bold uppercase text-center lg:text-left">Know it all first</h3>
+          <p className="text-sm hidden lg:block">
             Never Miss Anything From Multikart By Signing Up To Our Newsletter.
           </p>
         </div>
-        <div className="flex gap-4 w-2/4 justify-end">
+        <div className="flex gap-4 w-full justify-center mt-6 lg:mt-0 lg:w-2/4 lg:justify-end">
           <input
             type="text"
             placeholder="Enter your email"
-            className="outline-none border-none px-8 py-4 text-sm w-[300px]"
+            className="outline-none border-none px-8 py-4 text-sm w-3/4 md:w-2/4"
           />
-          <button className="text-sm px-10 text-white uppercase font-semibold">
+          <button className="text-sm px-3 lg:px-10 text-white uppercase font-semibold">
             Subscribe
           </button>
         </div>
       </div>
 
       {/* footer */}
-      <div className="grid grid-cols-4 text-sm px-14 py-12 bg-white gap-20 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="grid grid-rows-4 grid-cols-1 gap-10 text-sm px-14 py-12 bg-white sm:gap-20 sm:grid-cols-2 sm:grid-rows-2 xl:grid-cols-4 xl:grid-rows-1">
         <div className="w-full relative h-fit">
           <img
-            className="w-3/4 h-[90px] object-cover mb-4"
+            className="w-[90%] h-[90px] object-cover mb-4"
             src="https://images.unsplash.com/photo-1522139137660-4248e04955b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80"
           />
           <div className="flex flex-col gap-3">

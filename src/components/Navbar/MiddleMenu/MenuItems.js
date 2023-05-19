@@ -1,33 +1,86 @@
-import { useState } from "react";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md"
-import { MdKeyboardArrowRight } from "react-icons/md"
+import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import Dropdown from "./Dropdown";
 
-const MenuItems = ({ menuItemsData }) => {
-  console.log(menuItemsData)
-  const [open, setOpen] = useState(false);
-  return (
-    <li className="relative cursor-pointer px-3 py-3" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
-      <div className="flex items-center justify-center pr-6">
-        <p className="uppercase">{menuItemsData.title}</p>
-        {
-          menuItemsData?.subMenuItems?.length > 0 && (
-            menuItemsData?.depth >= 1 ? (
-              <span><MdKeyboardArrowRight /></span>
-            ) : <span><MdOutlineKeyboardArrowDown /></span>
-          )
-        }
-      </div>
-      {/* {console.log(menuItemsData.depth, "-->", menuItemsData.title)} */}
-      <ul className={"flex flex-col z-[100] absolute bg-[#fff] list-none w-auto text-sm" + (menuItemsData.depth >= 1 ? " left-[100%]" : " left-[0%]") + (menuItemsData.depth >= 1 ? " top-[20%]" : " top-[100%]")} >
+import styles from "./middlemenu.module.css"
 
-        {menuItemsData?.subMenuItems &&
-          open &&
-          menuItemsData.subMenuItems.map((data, i) => (
-            <MenuItems key={i} menuItemsData={data} />
-          ))}
-      </ul>
-    </li>
-  );
+import { MdKeyboardArrowDown, MdKeyboardArrowRight } from "react-icons/md"
+
+const MenuItems = ({ items, depthLevel }) => {
+    console.log(items)
+    const [dropdown, setDropdown] = useState(false);
+
+    let ref = useRef();
+
+    useEffect(() => {
+        const handler = (event) => {
+            if (dropdown && ref.current && !ref.current.contains(event.target)) {
+                setDropdown(false);
+            }
+        };
+        document.addEventListener("mousedown", handler);
+        document.addEventListener("touchstart", handler);
+        return () => {
+            // Cleanup the event listener
+            document.removeEventListener("mousedown", handler);
+            document.removeEventListener("touchstart", handler);
+        };
+    }, [dropdown]);
+
+    const onMouseEnter = () => {
+        // window.innerWidth > 960 && setDropdown(true);
+    };
+
+    const onMouseLeave = () => {
+        // window.innerWidth > 960 && setDropdown(false);
+    };
+
+    return (
+        <li
+            className={styles.menuItems}
+            ref={ref}
+            // onMouseEnter={onMouseEnter}
+            // onMouseLeave={onMouseLeave}
+            onMouseEnter={() => setDropdown((prev) => !prev)}
+            onMouseLeave={() => setDropdown((prev) => !prev)}
+        >
+            {items.category_children ? (
+                <>
+                    {/* <h3
+            // type="button"
+            // aria-haspopup="menu"
+            // aria-expanded={dropdown ? "true" : "false"}
+          >
+            {items.name}{" "}
+            {depthLevel > 0 ? <span>&raquo;</span> : <span className={styles.arrow} />}{" "}
+          </h3> */}
+                    <div className={styles.menuItemsLinks}>
+                        <h3>{items.name}</h3>
+                        {
+                            items.category_children.length > 0 && (
+                                <>
+                                    {depthLevel > 0 ? <span><MdKeyboardArrowRight /></span> : <span><MdKeyboardArrowDown /></span>}
+                                </>
+
+                            )
+                        }
+                    </div>
+                    {
+                        items.category_children.length > 0 && (
+
+                            <Dropdown
+                                depthLevel={depthLevel}
+                                submenus={items.category_children}
+                                dropdown={dropdown}
+                            />
+                        )
+                    }
+                </>
+            ) : (
+                <Link href="/#"> {items.name} </Link>
+            )}{" "}
+        </li>
+    );
 };
 
 export default MenuItems;
