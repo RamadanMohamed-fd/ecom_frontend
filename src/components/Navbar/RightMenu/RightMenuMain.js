@@ -1,46 +1,31 @@
 import { GiHamburgerMenu } from "react-icons/gi";
-import menuItemsData from "../MiddleMenu/menuItemsData";
 import RightMenuItems from "./RightMenuItems";
 import { useState } from "react";
+import { menu_data } from "../MiddleMenu/MenuData";
+import { AiOutlineRight } from "react-icons/ai";
 
-// Icons import
-import { FiSettings } from "react-icons/fi";
-import { BiSearch } from "react-icons/bi";
-import { RiDeleteBin6Line } from "react-icons/ri";
 
 const RightMenuMain = () => {
   const [showRightMenu, setShowRightMenu] = useState(false)
   return (
-    <div>
-      <div className="flex items-center justify-end">
-        <div className="absolute lg:hidden w-screen h-screen bg-gray-500/50 -z-100" style={{ display: showRightMenu ? "block" : "none" }}>
-        </div>
-        <div className="flex items-center">
-          <div>
-            <span className="text-[2rem] mr-6 hidden sm:flex cursor-pointer"><FiSettings /></span>
-          </div>
-          <div>
-            <span className="text-[2rem] mr-6 hidden sm:flex cursor-pointer"><BiSearch /></span>
-          </div>
-          <div>
-            <span className="text-[2rem] mr-6 hidden sm:flex cursor-pointer"><RiDeleteBin6Line /></span>
-          </div>
-          <div className="flex lg:hidden -z-200">
-            <span className="text-[2rem] mr-6 cursor-pointer" onClick={() => setShowRightMenu(!showRightMenu)}><GiHamburgerMenu /></span>
-          </div>
-        </div>
+    <>
+      <div className="flex justify-center items-center xl:hidden">
+        <span className="text-[1.6rem] mr-2 text-[var(--color-default)] cursor-pointer" onClick={() => setShowRightMenu(!showRightMenu)}><GiHamburgerMenu /></span>
       </div>
-      {/* <div className="relative w-[50%] flex lg:hidden justify-end"> */}
-      <nav className="block lg:hidden absolute bg-[#fff] z-[100] w-[350px] top-0 left-[100%]" style={{ transform: showRightMenu ? "translateX(-350px)" : "translateX(350px)" }}>
-        <div className="border-b-2 p-3" onClick={() => setShowRightMenu(!showRightMenu)}>BACK NAVBAR</div>
-        <ul className="m-0 p-0 list-none bg-[#fff]">
-          {menuItemsData.map((data, i) => (
-            <RightMenuItems key={i} menuItemsData={data} />
+      <nav className={`bg-white block xl:hidden  top-0 h-full xl:overflow-visible overflow-y-scroll text-black  z-10 right-0 fixed transition duration-700 sm:w-[19rem] max-sm:w-[17rem] 
+      ${showRightMenu && "translate-x-0"} ${!showRightMenu && "translate-x-[100%]"}
+     `}>
+        <div onClick={() => setShowRightMenu(!showRightMenu)} className=" flex justify-end items-center   uppercase p-4 cursor-pointer border-b w-full" >
+          <h2 className=" text-[20px] ml-1 font-medium text-gray-700">Back Navbar</h2>
+          <AiOutlineRight className="text-[12px] ml-2 font-bold " />
+        </div>
+        <ul className="">
+          {menu_data.map((items, i) => (
+            <RightMenuItems key={i} data={items} index={i} />
           ))}
         </ul>
       </nav>
-      {/* </div> */}
-    </div>
+    </>
   );
 };
 

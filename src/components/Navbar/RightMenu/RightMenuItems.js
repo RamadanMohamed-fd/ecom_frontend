@@ -1,26 +1,25 @@
 import { useState } from "react";
 import { HiPlus } from "react-icons/hi"
+import { menu_data, Home, Arts, Handicrafts, Handlooms, Trending, Resource } from "../MiddleMenu/MenuData";
+import ListItem from "../LeftMenu/ListItem";
+const sub = [Home, Arts, Handicrafts, Handlooms, Trending, Resource]
+const RightMenuItems = ({ data, index }) => {
 
-const RightMenuItems = ({ menuItemsData }) => {
-  console.log(menuItemsData)
   const [open, setOpen] = useState(false);
   return (
-    <li className="relative cursor-pointer p-3">
-      <div className="flex justify-between items-center">
-        <h3 className="uppercase font-semibold" onClick={() => setOpen(!open)}>{menuItemsData.name}</h3>
-        {
-          menuItemsData.category_children?.length > 0 && (
-            <span><HiPlus /></span>
-          )
-        }
+    <li className="relative cursor-pointer px-3 py-3">
+      <div className=" text-lg -ml-6 -mt-1 tracking-wider text-gray-700 font-medium " onClick={() => setOpen(!open)}>
+        <ListItem title={data} show={open} />
       </div>
-      <ul className={"z-[100] bg-[#fff] list-none font-extralight"}>
-        {menuItemsData?.category_children &&
-          open &&
-          menuItemsData.category_children.map((data, i) => (
-            <RightMenuItems key={i} menuItemsData={data} />
-          ))}
-      </ul>
+
+      {open && <ul className={"z-[100] bg-[#fff] list-none font-extralight"}>
+        {
+          sub[index].map((item, i) => (
+            <li key={i} className={` ml-6 text-gray-700 pt-1.5 duration-200 hover:text-[var(--color-default)]
+             font-medium underline hover:no-underline`}>{item.title}</li>
+          ))
+        }
+      </ul>}
     </li>
   );
 };

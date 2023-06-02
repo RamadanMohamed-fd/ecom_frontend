@@ -1,86 +1,37 @@
-import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
-import Dropdown from "./Dropdown";
+import { useState } from "react";
+import { MdOutlineKeyboardArrowDown, MdKeyboardArrowRight } from "react-icons/md"
+import { Home, Arts, Handicrafts, Handlooms, Trending, Resource } from "./MenuData";
+const sub = [Home, Arts, Handicrafts, Handlooms, Trending, Resource]
+const MenuItems = ({ menuItemsData, index }) => {
+  const [open, setOpen] = useState(false);
+  const [openSup, setOpenSup] = useState(false);
+  return (
+    <li className="relative  cursor-pointer py-3 " onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+      <div className="flex items-center justify-center pr-3 ">
+        <p className="uppercase pr-2 ">{menuItemsData}</p>
+        <MdOutlineKeyboardArrowDown />
+      </div>
+      <ul className={`z-[201] absolute  bg-[#fff] p-4 w-[200px] rounded-md mt-2 ml-0 ${open ? "block" : "hidden"} p-4 text-[14px] duration-1000 `} >
+        {
+          sub[index].map((data, i) => (
+            <li key={i} className="py-2  underline group/i hover:no-underline duration-200 hover:text-[var(--color-default)]">
+              <a className="flex justify-between  relative items-center" href={data.url}>{data.title} {data["sup"] && <MdKeyboardArrowRight />}  </a>
+              {data["sup"] &&
+                <ul className={`z-[201] absolute  bg-[#fff] p-4 w-[150px] left-[90%]  rounded-md mt-2 ml-0 hidden top-[60%] group-hover/i:block text-[14px] duration-1000 `}>
+                  {
+                    data["sup"].map((s, index) => (
+                      <li key={index} className=" cursor-pointer py-2 "><a className="flex justify-between relative items-center" href={s.url}>{s.title}</a></li>
+                    ))
+                  }
+                </ul>
+              }
 
-import styles from "./middlemenu.module.css"
-
-import { MdKeyboardArrowDown, MdKeyboardArrowRight } from "react-icons/md"
-
-const MenuItems = ({ items, depthLevel }) => {
-    console.log(items)
-    const [dropdown, setDropdown] = useState(false);
-
-    let ref = useRef();
-
-    useEffect(() => {
-        const handler = (event) => {
-            if (dropdown && ref.current && !ref.current.contains(event.target)) {
-                setDropdown(false);
-            }
-        };
-        document.addEventListener("mousedown", handler);
-        document.addEventListener("touchstart", handler);
-        return () => {
-            // Cleanup the event listener
-            document.removeEventListener("mousedown", handler);
-            document.removeEventListener("touchstart", handler);
-        };
-    }, [dropdown]);
-
-    const onMouseEnter = () => {
-        // window.innerWidth > 960 && setDropdown(true);
-    };
-
-    const onMouseLeave = () => {
-        // window.innerWidth > 960 && setDropdown(false);
-    };
-
-    return (
-        <li
-            className={styles.menuItems}
-            ref={ref}
-            // onMouseEnter={onMouseEnter}
-            // onMouseLeave={onMouseLeave}
-            onMouseEnter={() => setDropdown((prev) => !prev)}
-            onMouseLeave={() => setDropdown((prev) => !prev)}
-        >
-            {items.category_children ? (
-                <>
-                    {/* <h3
-            // type="button"
-            // aria-haspopup="menu"
-            // aria-expanded={dropdown ? "true" : "false"}
-          >
-            {items.name}{" "}
-            {depthLevel > 0 ? <span>&raquo;</span> : <span className={styles.arrow} />}{" "}
-          </h3> */}
-                    <div className={styles.menuItemsLinks}>
-                        <h3>{items.name}</h3>
-                        {
-                            items.category_children.length > 0 && (
-                                <>
-                                    {depthLevel > 0 ? <span><MdKeyboardArrowRight /></span> : <span><MdKeyboardArrowDown /></span>}
-                                </>
-
-                            )
-                        }
-                    </div>
-                    {
-                        items.category_children.length > 0 && (
-
-                            <Dropdown
-                                depthLevel={depthLevel}
-                                submenus={items.category_children}
-                                dropdown={dropdown}
-                            />
-                        )
-                    }
-                </>
-            ) : (
-                <Link href="/#"> {items.name} </Link>
-            )}{" "}
-        </li>
-    );
+            </li>
+          ))
+        }
+      </ul>
+    </li>
+  );
 };
 
 export default MenuItems;

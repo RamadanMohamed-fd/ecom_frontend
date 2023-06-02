@@ -3,22 +3,23 @@
 @tailwind utilities;
 
 @layer utilities {
+   
 
     /* Chrome, Safari and Opera */
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
+    /* .no-scrollbar::-webkit-scrollbar {
+        
     }
 
     .no-scrollbar::-webkit-scrollbar-track {
         background-color: transparent;
-    }
+    } */
 
-    .no-scrollbar {
+    /* .no-scrollbar {
         -ms-overflow-style: none;
-        /* IE and Edge */
+        
         scrollbar-width: none;
-        /* Firefox */
-    }
+       
+    } */
 
     input:focus~label,
     input:not(:placeholder-shown)~label {
@@ -44,12 +45,12 @@
         transition: background-color 5000s ease-in-out 0s;
     }
 
-    input[type="search"]::-webkit-search-decoration,
+    /* input[type="search"]::-webkit-search-decoration,
     input[type="search"]::-webkit-search-cancel-button,
     input[type="search"]::-webkit-search-results-button,
     input[type="search"]::-webkit-search-results-decoration {
         -webkit-appearance: none;
-    }
+    } */
 
     .swiper {
         width: 100%;
@@ -81,9 +82,26 @@
     .topcollection-heading-line {
         width: 10px;
         height: 10px;
-        background-color: #f87171;
+        background-color: var(--color-default);
     }
-
+    .list-item > li{
+        @apply mb-[1rem] mt-2 cursor-pointer tracking-widest xl:font-normal font-semibold uppercase pb-4 
+    }
+    .n-li > li{
+        @apply py-2 sm:text-xs font-normal xl:text-sm  
+    }
+    h5{
+        @apply font-semibold
+    }
+    .n-li li a{
+        @apply relative
+    }
+    .n-li li a::after{
+        @apply absolute content-['']  w-0 h-0.5 bg-red-400 -bottom-2 left-0 
+    }
+    .n-li li a:hover::after  {
+        @apply  animate-extend
+    }
     /* absolute top-[50%] left-[50%] text-[6rem] translate-x-[-50%] translate-y-[-50%]  */
     /* 
   .instagram-icon-animation {
@@ -163,4 +181,108 @@
     .text-3xl-semi {
         @apply text-[36px] leading-[48px] font-semibold;
     }
+    .slider_hover{
+        @apply h-full w-full bg-[#8c0d2a] opacity-40 scale-0 group-hover:scale-100 origin-top-left transition duration-150 ease-in-out
+       }
+       .icon_hover{
+        @apply text-base  hover:text-[var(--color-default)] hover:scale-[1.1] duration-150 cursor-pointer
+      }
+      .cat{
+        @apply px-3 max-[500px]:pr-2 cursor-pointer  duration-200
+      }
+      .arrow{
+        @apply  p-3 rounded-full cursor-pointer bg-white opacity-50  transition duration-300 ease-in-out  text-3xl grid place-items-center absolute z-10 top-[40%] hover:text-[var(--color-default)]  text-slate-900 
+      }
+
+}
+@layer base {
+    :root {
+      --color-default:  #8c0d2a;
+      --color-primary: #ffff;
+      --color-secondary:#343a40;
+    }
+  
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@600&display=swap');
+*{
+    scroll-behavior:smooth;
+    font-family: 'Signika Negative', sans-serif;
+}
+  body{
+     background-image:url('https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80') ;
+     background-position: center;
+     background-size: cover;
+     overflow-y: scroll;
+     background-repeat: no-repeat;
+     overflow-x: hidden;
+     background-attachment: fixed;
+   
+   }
+
+ 
+  .swiper {
+    width: 100%;
+    height: 100%;
+    font-size: 5px;
+    
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+ 
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit:fill;
+  }
+  .btn{
+ border-color: white;
+    background-image: -webkit-linear-gradient(45deg, white 50%, transparent 50%);
+    background-image: linear-gradient(45deg, white 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    -webkit-transition: background 500ms ease-in-out;
+    transition: background 500ms ease-in-out;
+ cursor: pointer;
+  }
+ .btn:hover {
+    color: #000;
+    background-position: 0;
+  }
+.elementor-shape-fill{
+    fill:#8c0d2a;
+}
+  /* .swiper-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto; 
+    grid-auto-flow: column;
+  }
+  .swiper-wrapper > .swiper-slide {
+    height: fit-content;
+  } */
+
+  #video-container {
+    top:0%;
+    left:0%;
+    height:100%;
+    width:100%;
+    overflow: hidden;
+    position: absolute;
+    
+}
+video {
+    position:absolute;
+    z-index:0;
+        width: 100%;
+        object-fit: cover;
+        background-size: cover;
 }

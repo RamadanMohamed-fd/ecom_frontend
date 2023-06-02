@@ -7,6 +7,8 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        <div id='view-root'></div>
+        <div id='Cart-root'></div>
       </body>
     </Html>
   )
