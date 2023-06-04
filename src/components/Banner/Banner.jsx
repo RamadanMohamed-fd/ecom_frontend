@@ -17,7 +17,7 @@ const Banner = (props) => {
           <h1 className=" font-bold  mb-2 text-slate-700 text-center md:text-[2rem] max-md:text-[1.8rem] max-sm:text-[1.3rem] uppercase">
             {props.sup}
           </h1>
-          <div className="w-fit px-6 py-1 tracking-wider  rounded-md  font-bold bg-[var(--color-default)]  text-white text-2xl btn shadow-xl ">
+          <div className="w-fit px-6 py-2 tracking-wider   font-bold bg-[var(--color-default)]  text-white text-xl btn shadow-xl ">
             Shop Now
           </div>
         </div>

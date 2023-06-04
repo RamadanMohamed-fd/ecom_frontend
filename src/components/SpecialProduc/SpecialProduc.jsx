@@ -13,9 +13,9 @@ import SectionProduct from './SectionProduct';
 const SpecialProduc = () => {
   const size = useWindowSize();
   let x = 3;
-  if (size.width <= 960 && size.width >= 533) {
+  if (size.width <= 960 && size.width >= 550) {
     x = 2;
-  } else if (size.width <= 533) {
+  } else if (size.width <= 550) {
     x = 1;
   }
   const images = [
@@ -33,13 +33,13 @@ const SpecialProduc = () => {
     'Trendy Pure Jute Bags',
   ];
   return (
-    <div id="curated_collections" className=" bg-white">
+    <div id="curated_collections" className=" bg-white w-full">
       <Title
         title="CraftIndika Curation"
         sup="Special Product"
         style="p-2 pt-12"
       />
-      <div className=" py-10  md:w-[80%]  max-[533px]:w-[75%] max-[370px]:w-[95%] m-auto  flex flex-col justify-center items-center  ">
+      <div className=" py-10  w-[95%] md:w-[80%] m-auto   flex flex-col justify-center items-center  ">
         <Swiper
           className="relative"
           slidesPerView={x}
@@ -58,10 +58,10 @@ const SpecialProduc = () => {
               </SwiperSlide>
             ))}
           </div>
-          <div className="button-prev-slide text-3xl grid place-items-center absolute z-10 top-[40%] hover:text-[var(--color-default)] duration-200 left-2 cursor-pointer text-slate-700  ">
+          <div className="button-prev-slide text-3xl grid place-items-center absolute z-10 top-[40%] hover:text-[var(--color-default)] duration-300 left-0 cursor-pointer text-slate-700 opacity-70  ">
             <BsArrowLeftSquareFill />
           </div>
-          <div className="button-next-slide text-3xl grid place-items-center absolute z-10 top-[40%] hover:text-[var(--color-default)] duration-200 right-0 cursor-pointer text-slate-700">
+          <div className="button-next-slide text-3xl grid place-items-center absolute z-10 top-[40%] hover:text-[var(--color-default)] duration-300 right-0 cursor-pointer text-slate-700 opacity-70">
             <BsArrowRightSquareFill />
           </div>
         </Swiper>

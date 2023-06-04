@@ -13,7 +13,7 @@ import Arrow from '../Arrow';
 
 export default function App() {
   return (
-    <div className="group ">
+    <div className=" w-full h-[270px] xl:h-[600px] md:h-[450px] sm:h-[400px] m-auto relative group mb-6">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -27,45 +27,69 @@ export default function App() {
           prevEl: '.button-prev-slide',
         }}
         modules={[Autoplay, Pagination, Navigation]}
-        className=""
+        className="group"
       >
         <SwiperSlide>
-          <div className="h-[450px] md:h-[600px] relative group overflow-hidden">
-            <div className="flex flex-col justify-center items-center bg-center transition duration-150 ease-in-out bg-cover h-full bg-[url(/baner_image/Banner_1.jpg)]"></div>
+          <div className="w-full h-full rounded-2xl duration-500">
+            <Image
+              quality={100}
+              fill
+              alt="Banner_image"
+              src={'/baner_image/Banner_1.jpg'}
+            />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="h-[450px] md:h-[600px] relative group overflow-hidden">
-            <div className="flex flex-col justify-center items-center bg-center transition duration-150 ease-in-out bg-cover h-full bg-[url(/baner_image/Banner-2.jpg)]"></div>
+          <div className=" w-full  bg-black transition duration-150 ease-in-out">
+            <video src="/VIDEOS/1.mp4" alt="Banner_image" loop muted autoPlay />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="h-[450px] md:h-[600px]  relative group overflow-hidden">
-            <div className="flex flex-col justify-center items-center bg-center transition duration-150 ease-in-out bg-cover h-full bg-[url(/baner_image/Banner_3.jpg)]"></div>
+          <div className="w-full h-full rounded-2xl duration-500">
+            <Image
+              quality={100}
+              fill
+              alt="Banner_image"
+              src={'/baner_image/Banner-2.jpg'}
+            />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="video-container  h-[4500px] md:h-[550px] bg-black duration-150 ease-in-out">
+          <div className=" w-full  bg-black transition duration-150 ease-in-out">
             <video
-              src="/VIDEOS/1.mp4"
-              className="w-full h-full"
+              src="/VIDEOS/2.mp4"
+              alt="Banner_image"
               loop
+              className=" h-full "
+              muted
               autoPlay
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className=" w-full h-[450px] md:h-[550px] bg-black transition duration-150 ease-in-out">
-            <video src="/VIDEOS/2.mp4" className=" h-full " loop autoPlay />
+          <div className="w-full h-full rounded-2xl duration-500">
+            <Image
+              quality={100}
+              alt="Banner_image"
+              fill
+              src={'/baner_image/Banner_3.jpg'}
+            />
           </div>
         </SwiperSlide>
+
         <SwiperSlide>
           <div className=" w-full h-[450px] md:h-[550px] bg-black transition duration-150 ease-in-out">
-            <video src="/VIDEOS/3.mp4" className=" h-full " loop autoPlay />
+            <video
+              src="/VIDEOS/3.mp4"
+              loop
+              className=" h-full "
+              muted
+              autoPlay
+            />
           </div>
         </SwiperSlide>
         <Arrow />
-        <button className=" absolute btn z-[200] top-[70%] left-[20%]  bg-[var(--color-default)] text-white font-bold px-4 py-2 text-lg rounded-md ">
+        <button className=" absolute btn z-[200] top-[80%] left-[15%]  bg-[var(--color-default)] text-white font-bold px-4 py-2 text-lg max-sm:text-xs rounded-md ">
           BUY NOW
         </button>
       </Swiper>

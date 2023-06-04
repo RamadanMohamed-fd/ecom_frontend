@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 const MW_Section = (props) => {
   return (
-    <div className=" relative flex  justify-evenly items-center group   overflow-hidden rounded-md shadow-xl cursor-pointer gap-5 w-[370px] max-h-[250px] ">
+    <div className=" relative flex  justify-evenly items-center group  overflow-hidden rounded-xl shadow-md cursor-pointer w-[370px] max-h-[250px] ">
       <div className=" group-hover:scale-[1.1] duration-500">
         <Image
           src={props.src_image}

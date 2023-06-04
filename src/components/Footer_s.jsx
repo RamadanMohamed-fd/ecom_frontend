@@ -14,7 +14,7 @@ const Footer_s = () => {
   let year = d.getFullYear();
   return (
     <div>
-      <div className=" bg-[#f5f2f2]">
+      <div className="-mt-1  bg-[#f5f2f2]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="18px"

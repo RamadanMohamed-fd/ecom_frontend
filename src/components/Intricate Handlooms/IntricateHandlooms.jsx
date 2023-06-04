@@ -12,7 +12,7 @@ const IntricateHandlooms = () => {
     x = 1;
   }
   return (
-    <div id="intricate_handlooms">
+    <div id="intricate_handlooms" className=" relative w-full">
       <Banner
         img="bg-[url('/Handloom/Saree.jpg')] "
         title="Intricate Handlooms Collection"
@@ -20,20 +20,20 @@ const IntricateHandlooms = () => {
         style="md:text-[4rem]"
         bg="bg-red-50/20 "
       />
-      <div id="mesmerica_arts" className=" py-8 w-full relative bg-white">
+      <div
+        id="mesmerica_arts"
+        className=" py-8 w-full relative bg-white flex flex-col justify-center items-center"
+      >
         <Title
           title="Handloom Collection"
           sup="Exclusive Gallery"
           style="my-4"
         />
-        <div className="py-5 md:w-[80%]  max-[533px]:w-[75%] max-[370px]:w-[95%] m-auto  flex flex-col justify-center items-center">
+        <div className="py-5 md:w-[80%] w-[95%] m-auto  flex flex-col justify-center items-center">
           <SwiperSection x={x} />
-          <div
-            className=" bg-[var(--color-default)] btn  shadow-xl px-5 py-2 rounded-lg  cursor-pointer
-     w-fit text-white text-xl mt-4"
-          >
-            <a href="#intricate_handlooms">Explore More </a>
-          </div>
+        </div>
+        <div className="btn e_btn ">
+          <a href="#intricate_handlooms">Explore More </a>
         </div>
       </div>
     </div>

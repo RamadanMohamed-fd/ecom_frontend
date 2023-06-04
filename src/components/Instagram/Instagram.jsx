@@ -14,7 +14,7 @@ const Instagram = () => {
   return (
     <div className="bg-white w-full h-full">
       <Title title="#INSTAGRAM" />
-      <div className=" max-w-[400px] max-h-[500px] m-auto max-sm:px-16 p-10">
+      <div className=" max-w-[450px] overflow-hidden  m-auto max-sm:px-16 p-10">
         <Swiper
           effect={'cards'}
           grabCursor={true}

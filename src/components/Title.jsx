@@ -3,7 +3,7 @@ import React from 'react';
 const Title = (props) => {
   return (
     <div
-      className={`flex items-center justify-center flex-col w-full bg-white cursor-pointer ${props.style}`}
+      className={`flex items-center justify-center flex-col w-full bg-white cursor-pointer  ${props.style}`}
     >
       <p className=" tracking-wider text-[var(--color-default)] font-semibold text-xl">
         {props.sup}

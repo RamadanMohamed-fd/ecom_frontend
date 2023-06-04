@@ -8,23 +8,23 @@ export const menu_data = [
 ];
 export const Home = [
   {
-    title: 'Top Collections',
+    title: 'Top_Collections',
     url: '#top_collection',
   },
   {
-    title: 'Mesmeric Arts',
+    title: 'Mesmeric_Arts',
     url: '#mesmeric_arts',
   },
   {
-    title: 'Exquisite Handicrafts',
+    title: 'Exquisite_Handicrafts',
     url: '#exquisite_handicrafts',
   },
   {
-    title: 'Intricate Handlooms',
+    title: 'Intricate_Handlooms',
     url: '#intricate_handlooms',
   },
   {
-    title: 'Curated Collections',
+    title: 'Curated_Collections',
     url: '#curated_collections',
   },
 ];

@@ -16,7 +16,7 @@ const FirstHead = () => {
     <div className={``}>
       <div
         className={`flex ${
-          offset >= 300 && ' bg-slate-50 text-slate-600 h-8 z-[510]'
+          offset >= 100 && ' bg-slate-50 text-slate-600 h-8 z-[510]'
         } justify-between items-center tracking-wider px-12 py-[0px] font-normal  text-[14px] bg-[var(--color-default)] text-[var(--color-primary)]  max-[570px]:hidden`}
       >
         <div className="flex justify-between items-center gap-6 ml-[4.3rem]">
@@ -39,7 +39,7 @@ const FirstHead = () => {
           <div className="flex justify-between items-center relative group/t py-2.5">
             <BsFillPersonFill />
             <p className="mx-2 cursor-pointer ">My account</p>
-            <ul className=" bg-white text-[16px] absolute rounded-md  -top-[10rem] opacity-0 group-hover/t:animate-moveUp right-0 text-black p-4 z-[510] w-40 ">
+            <ul className=" bg-gray-50 text-[16px] absolute rounded-md  -top-[10rem] opacity-0 group-hover/t:animate-moveUp right-0 text-black p-4 z-[510] w-40 ">
               <li className="m-2.5  underline hover:no-underline">
                 <a href="#">Login</a>
               </li>
@@ -58,13 +58,13 @@ const FirstHead = () => {
       <div className="min-[570px]:hidden bg-[var(--color-secondary)] fixed  w-full bottom-0 flex justify-evenly items-center text-[24px] text-slate-400 cursor-pointer z-[200]">
         <Main_icons
           className="group-hover/i:animate-moveDown1 bottom-[-10rem] -right-[0px]"
-          className1="group-hover/i:animate-moveDown1 bottom-[-10rem] -right-[150px]"
+          className1="group-hover/i:animate-moveDown1 bottom-[-8rem] -right-[160px]"
         />
         <BsFillSuitHeartFill />
 
         <div className="p-4  group/i  ">
           <BsFillPersonFill />
-          <div className=" absolute z-[106]  -right-4 opacity-0 group-hover/i:animate-moveDown1 bottom-[-10rem]">
+          <div className=" absolute z-[106] max-sm:-right-0 opacity-0 group-hover/i:animate-moveDown1 bottom-[-10rem]">
             <ul className=" bg-white text-[16px] rounded-md text-black p-4  w-40 ">
               <li className="m-2.5  underline hover:no-underline">
                 <a href="#">Login</a>

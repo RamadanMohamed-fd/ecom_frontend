@@ -6,13 +6,13 @@ import { AiOutlineRight } from "react-icons/ai";
 
 
 const RightMenuMain = () => {
-  const [showRightMenu, setShowRightMenu] = useState(false)
+  const [showRightMenu, setShowRightMenu] = useState(true)
   return (
     <>
-      <div className="flex justify-center items-center xl:hidden">
+      <div className="flex relative justify-center items-center xl:hidden">
         <span className="text-[1.6rem] mr-2 text-[var(--color-default)] cursor-pointer" onClick={() => setShowRightMenu(!showRightMenu)}><GiHamburgerMenu /></span>
       </div>
-      <nav className={`bg-white block xl:hidden  top-0 h-full xl:overflow-visible overflow-y-scroll text-black  z-10 right-0 fixed transition duration-700 sm:w-[19rem] max-sm:w-[17rem] 
+      <nav className={`bg-white block xl:hidden  top-0 h-full xl:overflow-visible overflow-y-scroll text-black  z-10 right-0 fixed transition duration-700 sm:w-[19rem] max-sm:w-[16rem] 
       ${showRightMenu && "translate-x-0"} ${!showRightMenu && "translate-x-[100%]"}
      `}>
         <div onClick={() => setShowRightMenu(!showRightMenu)} className=" flex justify-end items-center   uppercase p-4 cursor-pointer border-b w-full" >

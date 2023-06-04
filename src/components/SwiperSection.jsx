@@ -16,25 +16,25 @@ import { Pagination, Navigation, Grid } from 'swiper';
 const SwiperSection = (props) => {
   return (
     <Swiper
-      className=""
+      className="group/i  w-[100%] "
       slidesPerView={props.x}
       spaceBetween={0}
       grid={{
         rows: 2,
         fill: 'row',
       }}
-      loop={true}
+      // loop={true}
       navigation={{
-        nextEl: '.button-prev-slide',
-        prevEl: '.button-next-slide',
+        nextEl: '.button-next-slide',
+        prevEl: '.button-prev-slide',
       }}
       modules={[Grid, Pagination, Navigation]}
     >
       <div className=" ">
         {TopCollection_data.map((product, i) => (
           <SwiperSlide key={i}>
-            <div className=" p-1 ml-[8px] bg-slate-50 -mb-8 h-[180px] max-w-[320px] shadow-md rounded-md border-2 cursor-pointer flex">
-              <div className="group relative w-[50%] h-full">
+            <div className=" p-1 m-auto bg-slate-50   h-[180px] max-w-[320px] shadow-md rounded-md border-2 cursor-pointer flex">
+              <div className="group relative w-[50%]  h-full">
                 <img
                   className="w-full h-full object-cover rounded-t-md transition duration-300 ease-in-out"
                   src={product.img1}
@@ -63,10 +63,10 @@ const SwiperSection = (props) => {
           </SwiperSlide>
         ))}
       </div>
-      <div className="button-prev-slide text-3xl grid place-items-center absolute z-10 top-[44%] hover:text-[var(--color-default)] duration-200 left-0 cursor-pointer text-slate-700">
+      <div className="button-prev-slide text-3xl grid place-items-center absolute z-10 top-[46%] hover:text-[var(--color-default)] duration-300 left-[0%] cursor-pointer text-slate-700 opacity-70  ">
         <BsArrowLeftSquareFill />
       </div>
-      <div className="button-next-slide text-3xl grid place-items-center absolute z-10 top-[44%] hover:text-[var(--color-default)] duration-200 right-6 cursor-pointer text-slate-700">
+      <div className="button-next-slide text-3xl grid place-items-center absolute z-10 top-[46%] hover:text-[var(--color-default)] duration-300 right-[0%] cursor-pointer text-slate-700 opacity-70">
         <BsArrowRightSquareFill />
       </div>
     </Swiper>

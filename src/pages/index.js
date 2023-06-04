@@ -1,73 +1,13 @@
-import Head from "next/head"
-import { useState, useEffect } from "react"
-import { MdKeyboardDoubleArrowUp } from "react-icons/md"
-import Navbar from "@/components/Navbar/Navbar"
-import FirstHead from "@/components/Navbar/temp/FirstHead"
-import Hero from "@/components/Banner/Hero"
-import Man_Women from "@/components/man&weomen/Man_Women"
-import TopCollection from "@/components/top_collection/TopCollection"
-import MesmericArts from "@/components/Mesmeric Arts/MesmericArts"
-import Footer_s from "@/components/Footer_s"
-import CartProvider from "@/store/CartProvider"
-import ExquisiteHandicrafts from "@/components/Exquisite Handicrafts/ExquisiteHandicrafts"
-import IntricateHandlooms from "@/components/Intricate Handlooms/IntricateHandlooms"
-import SpecialProduc from "@/components/SpecialProduc/SpecialProduc"
-import News from "@/components/news/News"
-import Service from "@/components/Service/Service"
-import Instagram from "@/components/Instagram/Instagram"
-import Icons from "@/components/Icons"
+import React from 'react'
+import useRedirectAfterSomeSeconds from '@/components/LoadingTime';
 
-
-const Home = () => {
-
-  const [offset, setOffset] = useState(0);
-  useEffect(() => {
-    const onScroll = () => setOffset(window.pageYOffset);
-    window.removeEventListener('scroll', onScroll);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-  // Top Collection Data
+const Loading = () => {
+  const { secondsRemaining } = useRedirectAfterSomeSeconds('/Home', 5);
   return (
-    <CartProvider>
-      <div >
-        <Head
-          title="Home"
-          description="Shop all available models only at the ACME. Worldwide Shipping. Secure Payment."
-        />
-        {/* First Header */}
-        <FirstHead />
-        <div>
-          <Navbar />
-        </div>
-        {/* Hero Slider */}
-        <Hero />
-        {/* man&women */}
-        <Man_Women />
-
-        {/* Top Collection */}
-        <TopCollection />
-        {/* MesmericArts */}
-        <MesmericArts />
-        {/* Exquisite Handicrafts */}
-        <ExquisiteHandicrafts />
-        <IntricateHandlooms />
-        {/* services */}
-        <Service />
-        <SpecialProduc />
-        <Instagram />
-        <Icons />
-        <News />
-        <Footer_s />
-        {offset >= 800 && <a href="#" className=" bg-[var(--color-default)] opacity-80 fixed bottom-10 right-4 text-2xl text-slate-50 animate-bounce flex justify-center items-center z-[1000] w-12 h-12 rounded-full"><MdKeyboardDoubleArrowUp /></a>
-        }
-      </div>
-    </CartProvider>
-  )
+    <div className=' flex justify-center items-center w-full h-[100vh]'>
+      <div aria-label="Loading..." role="status" className="flex items-center space-x-2"><svg className="h-28 w-28  animate-spin stroke-gray-500" viewBox="0 0 256 256"><line x1="128" y1="32" x2="128" y2="64" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24"></line><line x1="195.9" y1="60.1" x2="173.3" y2="82.7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24"></line><line x1="224" y1="128" x2="192" y2="128" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24"></line><line x1="195.9" y1="195.9" x2="173.3" y2="173.3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24"></line><line x1="128" y1="224" x2="128" y2="192" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24"></line><line x1="60.1" y1="195.9" x2="82.7" y2="173.3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24"></line><line x1="32" y1="128" x2="64" y2="128" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24"></line><line x1="60.1" y1="60.1" x2="82.7" y2="82.7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24"></line></svg><span className="text-3xl font-medium text-gray-500">Loading...</span></div>
+    </div>
+  );
 }
 
-Home.getLayout = (page) => {
-  return { page }
-}
-
-export default Home
+export default Loading

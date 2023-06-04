@@ -66,7 +66,7 @@ const TopCollection = (props) => {
     x = 1;
   }
   return (
-    <div id="top_collection" className=" py-8 w-full relative bg-white">
+    <div id="top_collection" className=" mt-5 mb-10  w-full relative bg-white">
       <Title title="Top Collectoin" sup="Curated for You" />
       <div className="pt-5 w-[90%] m-auto flex flex-col justify-center items-center">
         <div
@@ -104,9 +104,9 @@ const TopCollection = (props) => {
           </div>
         </div>
         <Swiper
-          className="relative"
+          className="relative group/i"
           slidesPerView={x}
-          spaceBetween={30}
+          spaceBetween={15}
           loop={true}
           navigation={{
             nextEl: '.button-next-slide',
@@ -114,12 +114,12 @@ const TopCollection = (props) => {
           }}
           modules={[Pagination, Navigation]}
         >
-          <div className="  ">
+          <div className=" ">
             {TopCollection_data.filter(
               !categoryfilter ? (p) => p.Category === categoryName : (p) => true
             ).map((product, i) => (
               <SwiperSlide key={i}>
-                <div className="   max-w-[300px]  shadow-md rounded-md cursor-pointer">
+                <div className="   shadow-md rounded-md cursor-pointer">
                   <div className="group relative w-[100%]  overflow-hidden">
                     <div className=" object-cover rounded-md transition duration-300 ease-in-out">
                       <Image
@@ -156,17 +156,14 @@ const TopCollection = (props) => {
               </SwiperSlide>
             ))}
           </div>
-          <div className="button-prev-slide text-3xl grid place-items-center absolute z-10 top-[40%] hover:text-[var(--color-default)] duration-200 left-0 cursor-pointer text-slate-700  ">
+          <div className="button-prev-slide text-3xl grid place-items-center absolute z-10 top-[40%] hover:text-[var(--color-default)] duration-300 left-0 cursor-pointer text-slate-700 opacity-70  ">
             <BsArrowLeftSquareFill />
           </div>
-          <div className="button-next-slide text-3xl grid place-items-center absolute z-10 top-[40%] hover:text-[var(--color-default)] duration-200 right-0 cursor-pointer text-slate-700">
+          <div className="button-next-slide text-3xl grid place-items-center absolute z-10 top-[40%] hover:text-[var(--color-default)] duration-300 right-0 cursor-pointer text-slate-700 opacity-70">
             <BsArrowRightSquareFill />
           </div>
         </Swiper>
-        <div
-          className=" bg-[var(--color-default)]  btn  shadow-xl px-5 py-2 rounded-lg  cursor-pointer
-     w-fit text-white text-xl mt-0"
-        >
+        <div className="e_btn">
           <a href="#intricate_handlooms">Explore More </a>
         </div>
       </div>

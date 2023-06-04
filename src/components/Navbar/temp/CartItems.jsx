@@ -4,9 +4,9 @@ import CartAmount from '@/components/top_collection/CartAmount';
 
 const CartItems = (props) => {
   return (
-    <ul className=" bg-white text-[16px] text-black p-1 w-60 rounded-md">
-      {props.items.map((item, index) => (
-        <li key={index} className="m-2.5 ">
+    <ul className=" bg-white text-[16px] text-black p-1 w-full rounded-md">
+      {props.items.map((item) => (
+        <li key={item.id} className="m-2.5 ">
           <div>
             <p>{item.name}</p>
             <p>{item.price}</p>
