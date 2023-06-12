@@ -1,16 +1,20 @@
-import React from 'react';
+import React from 'react'
 
-import Swip from './Swip';
-import dynamic from 'next/dynamic';
-const Dynimic = dynamic(() => import('./Swip'), {
-  loading: () => <p>loading....</p>,
-});
+import Swip from "./Swip"
+import dynamic from 'next/dynamic'
+const Dynimic = dynamic(()=>import("./Swip"),{
+  loading:()=><p>loading....</p>
+}
+)
 const Hero = () => {
   return (
     <div className="  w-full bg-white ">
-      <Dynimic />
+      <Dynimic/>
     </div>
-  );
-};
 
-export default Hero;
+
+  )
+}
+
+export default Hero
+

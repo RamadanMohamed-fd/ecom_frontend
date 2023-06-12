@@ -1,9 +1,9 @@
-import { AiOutlineLeft } from 'react-icons/ai';
-import ListItem from './ListItem';
-import ListItem_Item from './ListItem_Item';
-import { useState } from 'react';
-import ListItem_nested from './ListItem_nested';
-import ListItem_nested_nested from './ListItem_nested_nested';
+import { AiOutlineLeft } from "react-icons/ai";
+import ListItem from "./ListItem";
+import ListItem_Item from "./ListItem_Item";
+import { useState } from "react";
+import ListItem_nested from "./ListItem_nested";
+import ListItem_nested_nested from "./ListItem_nested_nested";
 import {
   bags_nested,
   bags,
@@ -12,7 +12,7 @@ import {
   accessories_nested,
   care,
   care_nested,
-} from './data';
+} from "./data";
 
 const LeftMenuMain = (props) => {
   const [show, setShow] = useState(false);
@@ -32,9 +32,9 @@ const LeftMenuMain = (props) => {
   const [showFootWear, setFootWear] = useState(false);
   return (
     <div
-      className={`bg-white  top-0 h-full xl:overflow-visible overflow-y-scroll text-black  z-10 left-0 fixed transition duration-700  ${
-        props.show && 'translate-x-0'
-      } ${!props.show && 'translate-x-[-100%]'} sm:w-[19rem] max-sm:w-[17rem] `}
+      className={`bg-white font-sans  top-0 h-full xl:overflow-visible overflow-y-scroll text-black  z-10 left-0 fixed transition duration-700  ${
+        props.show && "translate-x-0"
+      } ${!props.show && "translate-x-[-100%]"} sm:w-[19rem] max-sm:w-[17rem] `}
     >
       <div
         className=" flex justify-start items-center  p-4 cursor-pointer border-b w-full"
@@ -58,7 +58,7 @@ const LeftMenuMain = (props) => {
             </div>
             <ul
               className={`p-1 n-li -mb-4 ml-7 mt-2 xl:absolute xl:bg-white  xl:ml-[300px] xl:-mt-8 xl:w-[200px] xl:pl-6 ${
-                !showBags && 'max-[1115px]:hidden'
+                !showBags && "max-[1115px]:hidden"
               } xl:hidden xl:group-hover:block`}
             >
               <ListItem_nested bags={bags} />
@@ -69,7 +69,7 @@ const LeftMenuMain = (props) => {
                 <a href="#">
                   <ListItem
                     title="purses"
-                    className={'xl:-ml-10 -ml-6'}
+                    className={"xl:-ml-10 -ml-6"}
                     show={showBags_n}
                   />
                 </a>
@@ -87,7 +87,7 @@ const LeftMenuMain = (props) => {
             </div>
             <ul
               className={`p-1 n-li -mb-4 ml-7 mt-2 xl:absolute xl:bg-white  xl:ml-[300px] xl:-mt-8 xl:w-[200px] xl:pl-6 ${
-                !showFootWear && 'max-[1115px]:hidden'
+                !showFootWear && "max-[1115px]:hidden"
               } xl:hidden xl:group-hover:block`}
             >
               <ListItem_nested bags={footWear} />
@@ -102,7 +102,7 @@ const LeftMenuMain = (props) => {
             </div>
             <ul
               className={`p-1 n-li -mb-4 ml-7  xl:absolute xl:bg-white  xl:ml-[300px] xl:-mt-8 xl:w-[200px] xl:pl-6 ${
-                !showAccessories && 'max-[1115px]:hidden'
+                !showAccessories && "max-[1115px]:hidden"
               } xl:hidden xl:group-hover:block`}
             >
               <ListItem_nested bags={accessories} />
@@ -113,7 +113,7 @@ const LeftMenuMain = (props) => {
                 <a href="#">
                   <ListItem
                     title="more.."
-                    className={'xl:-ml-10 -ml-6'}
+                    className={"xl:-ml-10 -ml-6"}
                     show={showAccessories_n}
                   />
                 </a>
@@ -137,7 +137,7 @@ const LeftMenuMain = (props) => {
             </div>
             <ul
               className={`p-1 n-li -mb-4 ml-7 mt-2 xl:absolute xl:bg-white  xl:ml-[300px] xl:-mt-8 xl:w-[200px] xl:pl-6 ${
-                !showCare && 'max-[1115px]:hidden'
+                !showCare && "max-[1115px]:hidden"
               } xl:hidden xl:group-hover:block`}
             >
               <ListItem_nested bags={care} />
@@ -148,7 +148,7 @@ const LeftMenuMain = (props) => {
                 <a href="#">
                   <ListItem
                     title="more.."
-                    className={'xl:-ml-10 -ml-6'}
+                    className={"xl:-ml-10 -ml-6"}
                     show={showCare_n}
                   />
                 </a>

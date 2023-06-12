@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { BsCart4 } from 'react-icons/bs';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { BsCart4 } from "react-icons/bs";
+import { AiOutlineHeart } from "react-icons/ai";
 
-import Image from 'next/image';
+import Image from "next/image";
 
 const Product = ({ product }) => {
   return (

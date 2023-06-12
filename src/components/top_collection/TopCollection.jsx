@@ -1,20 +1,24 @@
-import React, { useContext, useState } from 'react';
-import Title from '../Title';
-import { TopCollection_data } from './TopCollection_data';
-import { AiOutlineHeart, AiTwotoneHeart } from 'react-icons/ai';
-import { BsArrowLeftSquareFill, BsArrowRightSquareFill } from 'react-icons/bs';
-import { GrFormView } from 'react-icons/gr';
-import Heart from './Heart';
-import Image from 'next/image';
-import Cart from './Cart';
-import { Swiper, SwiperSlide } from 'swiper/react';
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper';
+import React, { useContext, useState } from "react";
+import Title from "../Title";
+import { TopCollection_data } from "./TopCollection_data";
 
-import useWindowSize from '../useWindowSize';
+import {
+  BsArrowLeftSquareFill,
+  BsArrowRightSquareFill,
+  BsBalloonHeartFill,
+} from "react-icons/bs";
+
+import Heart from "./Heart";
+import Image from "next/image";
+import Cart from "./Cart";
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Pagination, Navigation } from "swiper";
+
+import useWindowSize from "../useWindowSize";
 
 const TopCollection = (props) => {
   const size = useWindowSize();
@@ -27,7 +31,7 @@ const TopCollection = (props) => {
     setb(!b);
     setf(false);
     setr(false);
-    setCategoryName('Best Seller');
+    setCategoryName("Best Seller");
     if (b === true) {
       setCategoryfilter(true);
     } else {
@@ -38,7 +42,7 @@ const TopCollection = (props) => {
     setb(false);
     setf(!f);
     setr(false);
-    setCategoryName('Featured');
+    setCategoryName("Featured");
     if (f === true) {
       setCategoryfilter(true);
     } else {
@@ -49,7 +53,7 @@ const TopCollection = (props) => {
     setb(false);
     setf(false);
     setr(!r);
-    setCategoryName('Recommended');
+    setCategoryName("Recommended");
     if (r === true) {
       setCategoryfilter(true);
     } else {
@@ -76,8 +80,8 @@ const TopCollection = (props) => {
             onClick={handlb}
             className={`cat ${
               !b
-                ? 'text-slate-600'
-                : 'bg-[var(--color-default)] rounded-md  text-white '
+                ? "text-slate-600"
+                : "bg-[var(--color-default)] rounded-md  text-white "
             } py-1`}
           >
             Best Seller
@@ -86,8 +90,8 @@ const TopCollection = (props) => {
             onClick={handlf}
             className={`cat ${
               !f
-                ? 'text-slate-600'
-                : 'bg-[var(--color-default)] rounded-md  text-white '
+                ? "text-slate-600"
+                : "bg-[var(--color-default)] rounded-md  text-white "
             } py-1`}
           >
             Featured
@@ -96,8 +100,8 @@ const TopCollection = (props) => {
             onClick={handlr}
             className={`cat ${
               !r
-                ? 'text-slate-600'
-                : 'bg-[var(--color-default)] rounded-md  text-white '
+                ? "text-slate-600"
+                : "bg-[var(--color-default)] rounded-md  text-white "
             } py-1`}
           >
             Recommended
@@ -109,8 +113,8 @@ const TopCollection = (props) => {
           spaceBetween={15}
           loop={true}
           navigation={{
-            nextEl: '.button-next-slide',
-            prevEl: '.button-prev-slide',
+            nextEl: ".button-next-slide",
+            prevEl: ".button-prev-slide",
           }}
           modules={[Pagination, Navigation]}
         >
@@ -118,8 +122,8 @@ const TopCollection = (props) => {
             {TopCollection_data.filter(
               !categoryfilter ? (p) => p.Category === categoryName : (p) => true
             ).map((product, i) => (
-              <SwiperSlide key={i}>
-                <div className="   shadow-md rounded-md cursor-pointer">
+              <SwiperSlide>
+                <div key={i} className="   shadow-md rounded-md cursor-pointer">
                   <div className="group relative w-[100%]  overflow-hidden">
                     <div className=" object-cover rounded-md transition duration-300 ease-in-out">
                       <Image
@@ -128,8 +132,11 @@ const TopCollection = (props) => {
                         width={500}
                         height={500}
                       />
-                      <div className="text-3xl absolute z-40 right-0 bottom-0 m-2 ">
-                        <Heart icon1={AiOutlineHeart} icon2={AiTwotoneHeart} />
+                      <div className="text-3xl hover:scale-[1.2] duration-200 absolute z-40 right-0 bottom-0 m-2 ">
+                        <Heart
+                          icon1={BsBalloonHeartFill}
+                          icon2={BsBalloonHeartFill}
+                        />
                       </div>
                     </div>
                     <div className=" object-cover absolute top-0 left-0 -translate-x-[100vw] group-hover:translate-x-[0vw] rounded-md transition duration-500 ease-in-out">
@@ -143,11 +150,9 @@ const TopCollection = (props) => {
                   </div>
                   <div className="flex justify-evenly items-center my-2 ">
                     <div className=" flex flex-col justify-evenly items-center text-center">
-                      <h3 className="text-lg font-semibold pr-2">
-                        {product.name}
-                      </h3>
-                      <h1 className="text-lg text-center text-red-700 mb-2">
-                        {product.price}
+                      <h3 className="text-lg  pr-2">{product.name}</h3>
+                      <h1 className="text-lg text-center text-[#ff4c3b] mb-2">
+                        ${product.price}
                       </h1>
                     </div>
                     <Cart item={product} />

@@ -1,8 +1,8 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 const MW_Section = (props) => {
   return (
-    <div className=" relative flex  justify-evenly items-center group  overflow-hidden rounded-xl shadow-md cursor-pointer w-[370px] max-h-[250px] ">
+    <div className=" relative flex  font-serif  justify-evenly items-center group  overflow-hidden rounded-b-lg shadow-md cursor-pointer w-[370px] max-h-[250px] ">
       <div className=" group-hover:scale-[1.1] duration-500">
         <Image
           src={props.src_image}
@@ -17,7 +17,7 @@ const MW_Section = (props) => {
           {props.off}
         </h3>
         <p className=" text-[.9rem] max-sm:text-[.87rem] tracking-wide text-white">
-          {props.title}{' '}
+          {props.title}{" "}
         </p>
       </div>
     </div>

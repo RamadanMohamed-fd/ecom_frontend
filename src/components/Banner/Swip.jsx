@@ -1,19 +1,29 @@
-import React, { useRef, useState } from 'react';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-import Image from 'next/image';
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
-// import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper';
-import Arrow from '../Arrow';
-
+import React, { useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import Image from "next/image";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Autoplay, Pagination, Navigation } from "swiper";
+import Arrow from "../Arrow";
+import useWindowSize from "../useWindowSize";
 export default function App() {
+  let image1 = "/baner_image/1.jpg";
+  let image2 = "/baner_image/2.jpg";
+  let image3 = "/baner_image/3.jpg";
+  const size = useWindowSize();
+  if (size.width <= 420) {
+    image1 = "/baner_image/42.jpg";
+    image2 = "/baner_image/52.jpg";
+    image3 = "/baner_image/6.jpg";
+  } else if (size.width <= 900 && size.width >= 420) {
+    image1 = "/baner_image/7.jpg";
+    image2 = "/baner_image/8.jpg";
+    image3 = "/baner_image/9.jpg";
+  }
+
   return (
-    <div className=" w-full h-[270px] xl:h-[600px] md:h-[450px] sm:h-[400px] m-auto relative group mb-6">
+    <div className="  w-full  h-[650px] main  im   m-auto relative group mb-10">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -23,75 +33,111 @@ export default function App() {
         }}
         loop={true}
         navigation={{
-          nextEl: '.button-next-slide',
-          prevEl: '.button-prev-slide',
+          nextEl: ".button-next-slide",
+          prevEl: ".button-prev-slide",
         }}
         modules={[Autoplay, Pagination, Navigation]}
         className="group"
       >
         <SwiperSlide>
-          <div className="w-full h-full rounded-2xl duration-500">
+          <div className="-mt-2 ">
             <Image
-              quality={100}
               fill
               alt="Banner_image"
-              src={'/baner_image/Banner_1.jpg'}
+              src={image1}
+              layout="cover"
+              loading="lazy"
             />
           </div>
+          <button className=" font-mono b tracking-wider absolute btn z-[200] top-[80%] left-[15%]  bg-[var(--color-default)] text-white font-bold px-4 py-2 text-lg max-sm:text-xs  ">
+            BUY NOW
+          </button>
         </SwiperSlide>
         <SwiperSlide>
-          <div className=" w-full  bg-black transition duration-150 ease-in-out">
+          <div className=" ">
             <video src="/VIDEOS/1.mp4" alt="Banner_image" loop muted autoPlay />
           </div>
+          <div className=" absolute z-[200] md:top-[20%] m w-2/6  left-[7%]  text-white ">
+            <p className="md:text-[4rem] st  uppercase leading-tight ">
+              <span className=" md:text-[5.5rem] t text-4xl tracking-widest">
+                Forged
+              </span>{" "}
+              in Fire
+            </p>
+            <p className=" md:text-[2rem] sst  font-sans">
+              Sculpted with Passion
+            </p>
+            <p className=" md:text-[1.6rem] block sst font-sans ">
+              The Timeless Tale of Dhokra
+            </p>
+            <p className=" md:text-[1.6rem] sst font-sans "> Handicrafts</p>
+          </div>
+          <button className="font-mono b tracking-wider absolute btn z-[200] top-[80%] left-[15%]  bg-[var(--color-default)] text-white font-bold px-4 py-2 text-lg max-sm:text-xs  ">
+            BUY NOW
+          </button>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-full h-full rounded-2xl duration-500">
-            <Image
-              quality={100}
-              fill
-              alt="Banner_image"
-              src={'/baner_image/Banner-2.jpg'}
-            />
+          <div className="-mt-2">
+            <Image fill alt="Banner_image" src={image2} loading="lazy" />
           </div>
+          <button className="font-mono b tracking-wider absolute btn z-[200] top-[80%] left-[15%]  bg-[var(--color-default)] text-white font-bold px-4 py-2 text-lg max-sm:text-xs  ">
+            BUY NOW
+          </button>
         </SwiperSlide>
         <SwiperSlide>
-          <div className=" w-full  bg-black transition duration-150 ease-in-out">
-            <video
-              src="/VIDEOS/2.mp4"
-              alt="Banner_image"
-              loop
-              className=" h-full "
-              muted
-              autoPlay
-            />
+          <div className="  ">
+            <video src="/VIDEOS/2.mp4" alt="Banner_image" loop muted autoPlay />
           </div>
+          <div className=" absolute z-[200] md:top-[20%] m w-2/6  left-[7%]  text-white ">
+            <p className="md:text-[4rem] st  uppercase leading-tight ">
+              <span className=" md:text-[5.5rem] t text-4xl tracking-widest">
+                Forged
+              </span>{" "}
+              in Fire
+            </p>
+            <p className=" md:text-[2rem] sst  font-sans">
+              Sculpted with Passion
+            </p>
+            <p className=" md:text-[1.6rem] block sst font-sans ">
+              The Timeless Tale of Dhokra
+            </p>
+            <p className=" md:text-[1.6rem] sst font-sans "> Handicrafts</p>
+          </div>
+          <button className="font-mono b tracking-wider absolute btn z-[200] top-[80%] left-[15%]  bg-[var(--color-default)] text-white font-bold px-4 py-2 text-lg max-sm:text-xs ">
+            BUY NOW
+          </button>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-full h-full rounded-2xl duration-500">
-            <Image
-              quality={100}
-              alt="Banner_image"
-              fill
-              src={'/baner_image/Banner_3.jpg'}
-            />
+          <div className="-mt-2 ">
+            <Image fill alt="Banner_image" src={image3} loading="lazy" />
           </div>
+          <button className="font-mono b tracking-wider absolute btn z-[200] top-[80%] left-[15%]  bg-[var(--color-default)] text-white font-bold px-4 py-2 text-lg max-sm:text-xs ">
+            BUY NOW
+          </button>
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className=" w-full h-[450px] md:h-[550px] bg-black transition duration-150 ease-in-out">
-            <video
-              src="/VIDEOS/3.mp4"
-              loop
-              className=" h-full "
-              muted
-              autoPlay
-            />
+          <div className="">
+            <video src="/VIDEOS/3.mp4" loop muted autoPlay />
           </div>
+          <div className=" absolute z-[200] md:top-[20%] m w-2/6  left-[7%]  text-black ">
+            <p className="md:text-[3.5rem] st  uppercase leading-tight ">
+              <span className=" md:text-[5.5rem] t text-4xl tracking-widest">
+                Woven
+              </span>{" "}
+              from Nature
+            </p>
+            <p className=" md:text-[2rem] sst  font-sans">Crafted by Hands</p>
+            <p className=" md:text-[1.6rem] block sst font-sans ">
+              The Everlasting Elegance of Cane
+            </p>
+            <p className=" md:text-[1.6rem] sst font-sans "> Handicrafts</p>
+          </div>
+          <button className="font-mono b tracking-wider absolute btn z-[200] top-[80%] left-[15%]  bg-[var(--color-default)] text-white font-bold px-4 py-2 text-lg max-sm:text-xs ">
+            BUY NOW
+          </button>
         </SwiperSlide>
         <Arrow />
-        <button className=" absolute btn z-[200] top-[80%] left-[15%]  bg-[var(--color-default)] text-white font-bold px-4 py-2 text-lg max-sm:text-xs rounded-md ">
-          BUY NOW
-        </button>
       </Swiper>
     </div>
   );
