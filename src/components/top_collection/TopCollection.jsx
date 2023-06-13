@@ -122,7 +122,7 @@ const TopCollection = (props) => {
             {TopCollection_data.filter(
               !categoryfilter ? (p) => p.Category === categoryName : (p) => true
             ).map((product, i) => (
-              <SwiperSlide>
+              <SwiperSlide key={i}>
                 <div key={i} className="   shadow-md rounded-md cursor-pointer">
                   <div className="group relative w-[100%]  overflow-hidden">
                     <div className=" object-cover rounded-md transition duration-300 ease-in-out">
