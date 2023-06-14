@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { TbSearch } from "react-icons/tb";
+import { GiArchiveResearch } from "react-icons/gi";
 import { MdLanguage, MdTranslate } from "react-icons/md";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { MdOutlineSettings } from "react-icons/md";
@@ -11,6 +12,7 @@ const Main_icons = (props) => {
     <div className={`flex items-center justify-between  ${props.style}  `}>
       <div className="cursor-pointer   group/sea ">
         <div
+          title="Search"
           className={`  ${color && "text-red-700"}  `}
           onClick={() => setShowSearchBar(!showSearchBar)}
         >
@@ -34,12 +36,13 @@ const Main_icons = (props) => {
             max-[570px]:text-white min-[570px]:bg-transparent 
             max-[570px]:bg-[var(--color-secondary)] px-5`}
           />
-          {/* <button
+          <button
             type="submit"
-            className="w-[15%] font-mono bg-[var(--color-default)] text-white btn  text-lg "
+            className=" absolute right-0 bottom-0 max-[570px]:text-slate-400 max-[570px]:right-3 max-[570px]:text-3xl text-slate-800 hover:text-red-700 duration-200 "
+            title="Click to search"
           >
-            Submit
-          </button> */}
+            <GiArchiveResearch />
+          </button>
         </div>
       </div>
       <div className=" cursor-pointer relative group">

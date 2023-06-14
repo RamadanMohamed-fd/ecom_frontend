@@ -23,6 +23,7 @@ const SwiperSection = (props) => {
       className="group/i  w-[100%] "
       slidesPerView={props.x}
       spaceBetween={0}
+      keyboard={true}
       grid={{
         rows: 2,
         fill: "row",
@@ -44,12 +45,6 @@ const SwiperSection = (props) => {
                     className="w-full h-full object-cover rounded-t-md transition duration-300 ease-in-out"
                     src={product.img1}
                   />
-                  <div className="text-3xl hover:scale-[1.2] duration-200 absolute z-40 right-0 bottom-0 m-2 ">
-                    <Heart
-                      icon1={BsBalloonHeartFill}
-                      icon2={BsBalloonHeartFill}
-                    />
-                  </div>
                   <img
                     className="w-full h-full object-cover absolute top-0 left-0 opacity-0 group-hover:opacity-100 rounded-t-md transition duration-300 ease-in-out"
                     src={product.img2}
@@ -59,10 +54,16 @@ const SwiperSection = (props) => {
                 <div className=" w-[45%] pt-4 h-[180px]">
                   <h3 className="text-md ml-2 text-lg ">{product.name}</h3>
                   <h2 className="text-xl  ml-2 pb-1  border-b-2 text-[#ff4c3b]">
-                    {product.price}
+                    ${product.price}
                   </h2>
-                  <div className="flex items-center pt-6  justify-center">
+                  <div className="flex items-center pt-6 pl-6  justify-evenly">
                     <Cart item={product} />
+                  </div>
+                  <div className="text-3xl hover:scale-[1.2] duration-200 ml-4">
+                    <Heart
+                      icon1={BsBalloonHeartFill}
+                      icon2={BsBalloonHeartFill}
+                    />
                   </div>
                 </div>
               </div>

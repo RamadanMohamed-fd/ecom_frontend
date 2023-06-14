@@ -6,6 +6,7 @@ const CartItems = (props) => {
   const cancleHandler = () => {
     props.cancle(false);
   };
+
   return (
     <div
       className={`${
@@ -37,13 +38,18 @@ const CartItems = (props) => {
           </li>
         ))}
       </ul>
+      {props.items.length === 0 && (
+        <p className=" text-center text-2xl text-red-700 pt-6">
+          No product added
+        </p>
+      )}
       <div className=" fixed bottom-0 w-[280px] p-1  flex bg-white shadow-md justify-between pl-2 items-center">
         <div className="">
           <span className="pr-4">Total:</span>
           <span className=" text-red-400">${props.total}</span>
         </div>
         <button className="bg-[var(--color-default)] font-mono btn py-2 px-3 tracking-wider text-white ">
-          Chackout
+          Checkout
         </button>
       </div>
     </div>

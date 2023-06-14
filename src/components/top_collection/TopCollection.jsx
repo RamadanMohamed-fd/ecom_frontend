@@ -111,6 +111,7 @@ const TopCollection = (props) => {
           className="relative group/i"
           slidesPerView={x}
           spaceBetween={15}
+          keyboard={true}
           loop={true}
           navigation={{
             nextEl: ".button-next-slide",

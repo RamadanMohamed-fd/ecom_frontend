@@ -1,32 +1,44 @@
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+// import "swiper/css";
+// import "swiper/css/pagination";
+// import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import Arrow from "../Arrow";
 import useWindowSize from "../useWindowSize";
+import TitleVideo from "./TitleVideo";
+import SwiperCore, { Keyboard, Mousewheel } from "swiper/core";
+import img1 from "../../../public/baner_image/1.jpg";
+import img2 from "../../../public/baner_image/2.jpg";
+import img3 from "../../../public/baner_image/3.jpg";
+import img12 from "../../../public/baner_image/42.jpg";
+import img22 from "../../../public/baner_image/52.jpg";
+import img32 from "../../../public/baner_image/6.jpg";
+import img14 from "../../../public/baner_image/7.jpg";
+import img15 from "../../../public/baner_image/8.jpg";
+import img16 from "../../../public/baner_image/9.jpg";
 export default function App() {
-  let image1 = "/baner_image/1.jpg";
-  let image2 = "/baner_image/2.jpg";
-  let image3 = "/baner_image/3.jpg";
+  let image1 = img1;
+  let image2 = img2;
+  let image3 = img3;
   const size = useWindowSize();
   if (size.width <= 420) {
-    image1 = "/baner_image/42.jpg";
-    image2 = "/baner_image/52.jpg";
-    image3 = "/baner_image/6.jpg";
+    image1 = img12;
+    image2 = img22;
+    image3 = img32;
   } else if (size.width <= 900 && size.width >= 420) {
-    image1 = "/baner_image/7.jpg";
-    image2 = "/baner_image/8.jpg";
-    image3 = "/baner_image/9.jpg";
+    image1 = img14;
+    image2 = img15;
+    image3 = img16;
   }
-
+  SwiperCore.use([Keyboard, Mousewheel]);
   return (
     <div className="  w-full  h-[650px] main  im   m-auto relative group mb-10">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
+        keyboard={true}
         autoplay={{
           delay: 10000,
           disableOnInteraction: false,
@@ -41,13 +53,7 @@ export default function App() {
       >
         <SwiperSlide>
           <div className="-mt-2 ">
-            <Image
-              fill
-              alt="Banner_image"
-              src={image1}
-              layout="cover"
-              loading="lazy"
-            />
+            <Image fill alt="Banner_image" src={image1} placeholder="blur" />
           </div>
           <button className=" font-mono b tracking-wider absolute btn z-[200] top-[80%] left-[15%]  bg-[var(--color-default)] text-white font-bold px-4 py-2 text-lg max-sm:text-xs  ">
             BUY NOW
@@ -57,28 +63,20 @@ export default function App() {
           <div className=" ">
             <video src="/VIDEOS/1.mp4" alt="Banner_image" loop muted autoPlay />
           </div>
-          <div className=" absolute z-[200] md:top-[20%] m w-2/6  left-[7%]  text-white ">
-            <p className="md:text-[4rem] st  uppercase leading-tight ">
-              <span className=" md:text-[5.5rem] t text-4xl tracking-widest">
-                Forged
-              </span>{" "}
-              in Fire
-            </p>
-            <p className=" md:text-[2rem] sst  font-sans">
-              Sculpted with Passion
-            </p>
-            <p className=" md:text-[1.6rem] block sst font-sans ">
-              The Timeless Tale of Dhokra
-            </p>
-            <p className=" md:text-[1.6rem] sst font-sans "> Handicrafts</p>
-          </div>
+          <TitleVideo
+            t="Forged"
+            st="in Fire"
+            sst="Sculpted with Passion"
+            sst1="The Timeless Tale of Dhokra"
+            sst2=" Handicrafts"
+          />
           <button className="font-mono b tracking-wider absolute btn z-[200] top-[80%] left-[15%]  bg-[var(--color-default)] text-white font-bold px-4 py-2 text-lg max-sm:text-xs  ">
             BUY NOW
           </button>
         </SwiperSlide>
         <SwiperSlide>
           <div className="-mt-2">
-            <Image fill alt="Banner_image" src={image2} loading="lazy" />
+            <Image fill alt="Banner_image" src={image2} placeholder="blur" />
           </div>
           <button className="font-mono b tracking-wider absolute btn z-[200] top-[80%] left-[15%]  bg-[var(--color-default)] text-white font-bold px-4 py-2 text-lg max-sm:text-xs  ">
             BUY NOW
@@ -88,28 +86,20 @@ export default function App() {
           <div className="  ">
             <video src="/VIDEOS/2.mp4" alt="Banner_image" loop muted autoPlay />
           </div>
-          <div className=" absolute z-[200] md:top-[20%] m w-2/6  left-[7%]  text-white ">
-            <p className="md:text-[4rem] st  uppercase leading-tight ">
-              <span className=" md:text-[5.5rem] t text-4xl tracking-widest">
-                Forged
-              </span>{" "}
-              in Fire
-            </p>
-            <p className=" md:text-[2rem] sst  font-sans">
-              Sculpted with Passion
-            </p>
-            <p className=" md:text-[1.6rem] block sst font-sans ">
-              The Timeless Tale of Dhokra
-            </p>
-            <p className=" md:text-[1.6rem] sst font-sans "> Handicrafts</p>
-          </div>
+          <TitleVideo
+            t="Woven"
+            st="from Nature"
+            sst="Crafted by Hands"
+            sst1="The Everlasting Elegance of Cane"
+            sst2=" Handicrafts"
+          />
           <button className="font-mono b tracking-wider absolute btn z-[200] top-[80%] left-[15%]  bg-[var(--color-default)] text-white font-bold px-4 py-2 text-lg max-sm:text-xs ">
             BUY NOW
           </button>
         </SwiperSlide>
         <SwiperSlide>
           <div className="-mt-2 ">
-            <Image fill alt="Banner_image" src={image3} loading="lazy" />
+            <Image fill alt="Banner_image" src={image3} placeholder="blur" />
           </div>
           <button className="font-mono b tracking-wider absolute btn z-[200] top-[80%] left-[15%]  bg-[var(--color-default)] text-white font-bold px-4 py-2 text-lg max-sm:text-xs ">
             BUY NOW
@@ -120,19 +110,14 @@ export default function App() {
           <div className="">
             <video src="/VIDEOS/3.mp4" loop muted autoPlay />
           </div>
-          <div className=" absolute z-[200] md:top-[20%] m w-2/6  left-[7%]  text-black ">
-            <p className="md:text-[3.5rem] st  uppercase leading-tight ">
-              <span className=" md:text-[5.5rem] t text-4xl tracking-widest">
-                Woven
-              </span>{" "}
-              from Nature
-            </p>
-            <p className=" md:text-[2rem] sst  font-sans">Crafted by Hands</p>
-            <p className=" md:text-[1.6rem] block sst font-sans ">
-              The Everlasting Elegance of Cane
-            </p>
-            <p className=" md:text-[1.6rem] sst font-sans "> Handicrafts</p>
-          </div>
+          <TitleVideo
+            color="text-white"
+            t="Woven"
+            st="from Nature"
+            sst="Crafted by Hands"
+            sst1="The Everlasting Elegance of Cane"
+            sst2=" Handicrafts"
+          />
           <button className="font-mono b tracking-wider absolute btn z-[200] top-[80%] left-[15%]  bg-[var(--color-default)] text-white font-bold px-4 py-2 text-lg max-sm:text-xs ">
             BUY NOW
           </button>

@@ -8,6 +8,8 @@ import {
 import { FiMail } from "react-icons/fi";
 import { ImLocation } from "react-icons/im";
 import { IoMdCall } from "react-icons/io";
+import logo_image from "../../public/CraftIndika.png";
+import map_image from "../../public/craftindika-map.jpg";
 const Footer_s = () => {
   const d = new Date();
   let year = d.getFullYear();
@@ -20,7 +22,7 @@ const Footer_s = () => {
             xmlns="http://www.w3.org/2000/svg"
             className=""
             height="18px"
-            width=""
+            width="100%"
             viewBox="0 0 1047.1 3.7 "
             preserveAspectRatio="xMidYMin slice"
           >
@@ -31,16 +33,17 @@ const Footer_s = () => {
           </svg>
         </div>
         <div
-          className=" flex py-12  px-4 justify-evenly  max-lg:gap-4 flex-wrap
+          className=" flex py-12  px-4 justify-center  max-lg:gap-4 flex-wrap
          bg-[#f5f2f2] text-slate-600 "
         >
-          <div className="w-[20rem] pr-4 ">
-            <div className="-ml-8">
+          <div className="w-[19.5rem]   ">
+            <div className="-ml-12">
               <Image
-                src="/CraftIndika.png"
+                src={logo_image}
                 width={320}
                 height={300}
-                placeholder="blure"
+                layout="responsive"
+                placeholder="blur"
               />
             </div>
             <ul className="flex flex-col gap-1 font-bold">
@@ -122,7 +125,12 @@ const Footer_s = () => {
               href="https://www.google.com/maps/place/N.+A.+Majestic+Apartment/@20.278097,85.860166,14z/data=!4m5!3m4!1s0x0:0x33712591060b90b1!8m2!3d20.2781128!4d85.8601243?hl=en-US&shorturl=1"
               target="_blank"
             >
-              <Image src="/craftindika-map.jpg" width={500} height={400} />
+              <Image
+                src={map_image}
+                width={500}
+                height={400}
+                placeholder="blur"
+              />
             </a>
           </div>
           <div className="w-[15rem]">

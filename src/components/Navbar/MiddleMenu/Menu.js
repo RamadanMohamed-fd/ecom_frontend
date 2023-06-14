@@ -35,12 +35,13 @@ const Menu = (props) => {
             setting="bg-white text-[16px] absolute top-[0.1rem] right-[-70px]
              text-black p-4 z-[510] w-40 rounded-b-sm shadow-b-md
              scale-0 duration-200  group-hover/s:scale-100 font-normal tracking-wide shadow-md"
-            search=" xl:w-[370%] w-[200px] top-[15.5px] max-[740px]:w-[200px]  max-[740px]:top-[41px]
-             right-[95%] max-[740px]:right-[-10%] max-[740px]:right-[-20%] "
+            search=" xl:w-[370%] w-[200px] top-[15.5px] max-[740px]:w-[200px]  
+            max-[740px]:top-[41px]
+             right-[120%] max-[740px]:right-[-10%] max-[740px]:right-[-20%] "
             inp=" border-b-2  border-red-700 "
             s="border-slate-600 rounded-[5px] border-2 p-[4.8px]  text-base "
           >
-            <div className="p-1" onClick={cartState}>
+            <div className="p-1" title="open cart" onClick={cartState}>
               <AiOutlineShoppingCart className="hover:text-red-700 duration-200" />
               <span
                 className="bg-[var(--color-default)]  left-[15px] text-sm top-[-5px] absolute h-5 

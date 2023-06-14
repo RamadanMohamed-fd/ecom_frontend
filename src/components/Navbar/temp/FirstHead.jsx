@@ -83,7 +83,7 @@ const FirstHead = (props) => {
             setting=" bg-[var(--color-secondary)] text-[16px] font- absolute bottom-10
              right-[-90px] font-serif text-white p-4 z-[510] w-40 rounded-b-sm
              scale-0 group-hover/s:scale-100 font-normal duration-500 tracking-wide"
-            search="left-0 top-[-37px]"
+            search="left-0 top-[-35px] "
           >
             <div className="p-1" onClick={cartState}>
               <AiOutlineShoppingCart

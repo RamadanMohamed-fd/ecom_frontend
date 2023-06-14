@@ -45,6 +45,7 @@ const SpecialProduc = () => {
           slidesPerView={x}
           spaceBetween={10}
           // loop={true}
+          keyboard={true}
           navigation={{
             nextEl: ".button-next-slide",
             prevEl: ".button-prev-slide",
