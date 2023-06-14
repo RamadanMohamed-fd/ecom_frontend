@@ -39,9 +39,7 @@ const CartItems = (props) => {
         ))}
       </ul>
       {props.items.length === 0 && (
-        <p className=" text-center text-2xl text-red-700 pt-6">
-          No product added
-        </p>
+        <p className=" text-center text-2xl  pt-6">No product added</p>
       )}
       <div className=" fixed bottom-0 w-[280px] p-1  flex bg-white shadow-md justify-between pl-2 items-center">
         <div className="">
