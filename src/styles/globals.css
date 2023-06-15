@@ -99,9 +99,7 @@
   .n-li li a::after {
     @apply absolute content-['']  w-0 h-0.5 bg-red-400 -bottom-2 left-0;
   }
-  .n-li li a:hover::after {
-    @apply animate-extend;
-  }
+
   /* absolute top-[50%] left-[50%] text-[6rem] translate-x-[-50%] translate-y-[-50%]  */
   /* 
   .instagram-icon-animation {

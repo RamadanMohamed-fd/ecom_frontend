@@ -1,25 +1,48 @@
 import React from "react";
-import Banner from "../Banner/Banner";
+import Image from "next/image";
+import image1 from "../../../public/section_images/3.jpg";
+import image2 from "../../../public/section_images/6.jpg";
+import image3 from "../../../public/section_images/8.jpg";
 import Title from "../Title";
 import useWindowSize from "../useWindowSize";
 import SwiperSection from "../SwiperSection";
 const IntricateHandlooms = () => {
   const size = useWindowSize();
+  let image = image1;
+  let w = 1920;
+  let h = 1080;
   let x = 3;
   if (size.width <= 960 && size.width >= 533) {
     x = 2;
-  } else if (size.width <= 533) {
+    image = image2;
+    w = 1280;
+    h = 720;
+  } else if (size.width < 533) {
     x = 1;
+    image = image3;
+    w = 520;
+    h = 480;
   }
   return (
     <div id="intricate_handlooms" className=" relative w-full">
-      <Banner
-        img="bg-[url('/Handloom/Saree.jpg')] "
-        title="Intricate Handlooms Collection"
-        sup="Exclusive Offers"
-        style="md:text-[4.5rem] text-[crimson]"
-        bg="bg-red-50/40 "
-      />
+      <div className=" w-full  bg-white ">
+        <div className=" flex justify-center relative ">
+          <Image
+            width={w}
+            height={h}
+            alt="Intricate Handlooms Collection"
+            src={image}
+            placeholder="blur"
+          />
+          <button
+            className=" font-mono b tracking-wider absolute btn z-[100]
+           top-[80%] left-[15%]  bg-[var(--color-default)]
+           text-white font-bold px-4 py-2 max-sm:py-[7px] max-[533px]:top-[93%] max-[533px]:left-auto text-lg max-sm:text-xs  "
+          >
+            BUY NOW
+          </button>
+        </div>
+      </div>
       <div
         id="mesmerica_arts"
         className=" py-8 w-full relative bg-white flex flex-col justify-center items-center"

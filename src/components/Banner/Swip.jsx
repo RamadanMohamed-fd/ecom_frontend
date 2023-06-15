@@ -34,7 +34,7 @@ export default function App() {
   }
   SwiperCore.use([Keyboard, Mousewheel]);
   return (
-    <div className="  w-full  h-[650px] main  im   m-auto relative group mb-10">
+    <div className="  w-full  h-[720px] main  im   m-auto relative group mb-10">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
