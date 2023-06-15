@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { BsFillCartPlusFill, BsFillCartCheckFill } from "react-icons/bs";
-import { TbSquareRoundedPlus, TbSquareRoundedMinus } from "react-icons/tb";
 
 import Heart from "./Heart";
 import CartContext from "@/store/Cart_context";

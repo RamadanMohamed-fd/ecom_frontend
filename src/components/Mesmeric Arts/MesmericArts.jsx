@@ -1,5 +1,4 @@
 import React from "react";
-import Banner from "../Banner/Banner";
 import Image from "next/image";
 import Title from "../Title";
 import useWindowSize from "../useWindowSize";

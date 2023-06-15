@@ -4,11 +4,11 @@ import Image from "next/image";
 import image from "../../../public/instagramImage.avif";
 const InstSaction = () => {
   return (
-    <div className=" w-full h-full  border-2 shadow-sm rounded-lg  relative group cursor-pointer">
+    <div className="   border-2 shadow-sm rounded-lg  relative group cursor-pointer">
       <Image
         width={464}
         higth={580}
-        // alt="instagram image"
+        alt="instagram image"
         placeholder="blur"
         src={image}
       />

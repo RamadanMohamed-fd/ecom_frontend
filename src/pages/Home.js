@@ -2,7 +2,6 @@ import Head from "next/head";
 import { useState, useEffect } from "react";
 import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 import Navbar from "@/components/Navbar/Navbar";
-import FirstHead from "@/components/Navbar/temp/FirstHead";
 import Hero from "@/components/Banner/Hero";
 import Man_Women from "@/components/man&weomen/Man_Women";
 import Footer_s from "@/components/Footer_s";

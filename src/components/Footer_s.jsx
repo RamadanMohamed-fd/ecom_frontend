@@ -1,10 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import {
-  AiOutlineGooglePlus,
-  AiOutlineTwitter,
-  AiOutlineInstagram,
-} from "react-icons/ai";
+
 import { FiMail } from "react-icons/fi";
 import { ImLocation } from "react-icons/im";
 import { IoMdCall } from "react-icons/io";

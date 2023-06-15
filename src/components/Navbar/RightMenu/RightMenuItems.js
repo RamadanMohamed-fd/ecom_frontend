@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { HiPlus } from "react-icons/hi";
 import {
   menu_data,
   Home,

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Title from "../Title";
 import React, { useRef, useState } from "react";
 // Import Swiper React components
