@@ -8,7 +8,7 @@ const InstSaction = () => {
       <Image
         width={464}
         higth={580}
-        alt="instagram image"
+        // alt="instagram image"
         placeholder="blur"
         src={image}
       />
