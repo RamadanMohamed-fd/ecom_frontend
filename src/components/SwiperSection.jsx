@@ -1,6 +1,5 @@
 import React from "react";
 import { TopCollection_data } from "./top_collection/TopCollection_data";
-
 import {
   BsArrowLeftSquareFill,
   BsArrowRightSquareFill,
@@ -17,6 +16,7 @@ import "swiper/css/grid";
 // import "./styles.css";
 // import required modules
 import { Pagination, Navigation, Grid } from "swiper";
+import Image from "next/image";
 const SwiperSection = (props) => {
   return (
     <Swiper
@@ -41,14 +41,12 @@ const SwiperSection = (props) => {
             <SwiperSlide>
               <div className=" p-1 m-auto bg-slate-50   h-[180px] max-w-[320px] shadow-md rounded-md border-2 cursor-pointer flex">
                 <div className="group relative w-[50%]  h-full">
-                  <img
-                    className="w-full h-full object-cover rounded-t-md transition duration-300 ease-in-out"
-                    src={product.img1}
-                  />
-                  <img
-                    className="w-full h-full object-cover absolute top-0 left-0 opacity-0 group-hover:opacity-100 rounded-t-md transition duration-300 ease-in-out"
-                    src={product.img2}
-                  />
+                  <div className="w-full h-full object-cover rounded-t-md transition duration-300 ease-in-out">
+                    <Image loading="lazy" fill src={product.img1} />
+                  </div>
+                  <div className="w-full h-full object-cover absolute top-0 left-0 opacity-0 group-hover:opacity-100 rounded-t-md transition duration-300 ease-in-out">
+                    <Image src={product.img2} fill loading="lazy" />
+                  </div>
                 </div>
 
                 <div className=" w-[45%] pt-4 h-[180px]">

@@ -1,7 +1,7 @@
 import React from "react";
 import { BsInstagram } from "react-icons/bs";
 import Image from "next/image";
-import image from "../../../public/instagramImage.avif";
+import image from "../../../public/section_images/8.jpg";
 const InstSaction = () => {
   return (
     <div className="   border-2 shadow-sm rounded-lg  relative group cursor-pointer">
