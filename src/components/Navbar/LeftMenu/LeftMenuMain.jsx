@@ -32,7 +32,7 @@ const LeftMenuMain = (props) => {
               <MenuItems
                 key={i}
                 menuItemsData={data}
-                style={" left-[100%] bg-red-400 top-[-30px]"}
+                style={" left-[100%] bg-white top-[-10px]"}
                 sty={false}
               />
             ))}
