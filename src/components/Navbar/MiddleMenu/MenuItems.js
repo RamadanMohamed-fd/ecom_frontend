@@ -70,7 +70,7 @@ const MenuItems = ({ menuItemsData, style, sty }) => {
         {menuItemsData["sup1"] && (
           <div className="grid grid-cols-3 grid-rows-2 w-[780px] bg-white  -mt-4 ml-0 h-[410px] pl-10 pt-5 -m-3 gap-y-[65px] ">
             {menuItemsData.sup1.map((data, i) => (
-              <li kay={i} className="  ">
+              <li key={i} className="  ">
                 <h5>{data.title}</h5>
                 <Sup data={data} />
               </li>

@@ -10,7 +10,7 @@ const SubRight = (props) => {
           text-[14px] text-slate-800 bg-gray-50 font-normal ${props.style} `}
         >
           {props.data["sup"].map((s, index) => (
-            <SupLI data={s} index={index} />
+            <SupLI data={s} index={index} key={index} />
           ))}
         </ul>
       )}
@@ -22,7 +22,7 @@ const SubRight = (props) => {
           } `}
         >
           {props.data["sup1"].map((s, index) => (
-            <SupLI data={s} index={index} />
+            <SupLI data={s} index={index} key={index} />
           ))}
         </ul>
       )}
