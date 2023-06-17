@@ -7,6 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        topdown: {
+          "0%": { top: "-10rem", opacity: "0" },
+          "100%": { top: "0rem", opacity: "1" },
+        },
+      },
+      animation: {
+        topdown: " topdown 1s forwards",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

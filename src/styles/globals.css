@@ -465,3 +465,19 @@ video {
   bottom: 0;
   background-color: #8c0d2a;
 }
+
+.parent:hover > .child {
+  display: block;
+  transition: 0.5s;
+}
+.parent1 > .child1 {
+  display: block;
+  transition: 0.5s;
+}
+
+.parent:hover > a {
+  color: rgb(185 28 28);
+}
+.parent:hover > a .c {
+  transform: rotate(90deg);
+}

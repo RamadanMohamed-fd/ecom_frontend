@@ -1,7 +1,7 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import RightMenuItems from "./RightMenuItems";
-import { useState } from "react";
-import { menu_data } from "../MiddleMenu/MenuData";
+
+import { MenuItems_data } from "../MiddleMenu/MenuData";
 import { AiOutlineRight } from "react-icons/ai";
 
 const RightMenuMain = (props) => {
@@ -36,8 +36,8 @@ const RightMenuMain = (props) => {
           <AiOutlineRight className="text-[12px] ml-2 font-bold" />
         </div>
         <ul className=" font-light">
-          {menu_data.map((items, i) => (
-            <RightMenuItems key={i} data={items} index={i} />
+          {MenuItems_data.map((items, i) => (
+            <RightMenuItems key={i} data={items} />
           ))}
         </ul>
       </nav>
@@ -46,17 +46,3 @@ const RightMenuMain = (props) => {
 };
 
 export default RightMenuMain;
-
-// import React from 'react'
-// import menuItemsData from '../MiddleMenu/menuItemsData'
-// import RightMenuItems from "./RightMenuItems"
-
-// const RightMenuMain = () => {
-//   return (
-//     <div>
-//       <RightMenuItems menuItemsData={menuItemsData} />
-//     </div>
-//   )
-// }
-
-// export default RightMenuMain

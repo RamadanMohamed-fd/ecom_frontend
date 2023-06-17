@@ -1,4 +1,4 @@
-import { menu_data } from "./MenuData";
+import { MenuItems_data } from "./MenuData";
 import MenuItems from "./MenuItems";
 import Main_icons from "../temp/Main_icons";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -23,8 +23,8 @@ const Menu = (props) => {
           className=" hidden mt-12 right-36 absolute pb-[1px]  pr-[-10px]   
         xl:flex justify-center items-center"
         >
-          {menu_data.map((data, i) => (
-            <MenuItems key={i} menuItemsData={data} index={i} />
+          {MenuItems_data.map((data, i) => (
+            <MenuItems key={i} menuItemsData={data} sty={true} />
           ))}
         </div>
         <div
