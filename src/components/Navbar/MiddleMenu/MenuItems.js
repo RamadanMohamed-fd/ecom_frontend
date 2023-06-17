@@ -12,14 +12,14 @@ const MenuItems = ({ menuItemsData, style, sty }) => {
     <li
       className={`relative  font-sans  w-full after:content-[''] after:absolute after:h-[2px]
        after:bg-red-700 
-      hover:after:w-[100%] after:left-0  after:w-0 after:duration-500 
+       after:left-0  after:w-0 after:duration-500 
       before:content-[''] before:absolute before:h-[2px]
       before:bg-red-700 before:bottom-0 
-      hover:before:w-[100%] before:right-0  before:w-0 before:duration-500 
+       before:right-0  before:w-0 before:duration-500 
       text-[14px] text-slate-800  cursor-pointer py-2 px-1 mt-3 ${
         sty
-          ? "hover:border-x-2 after:top-0 before:right-0 hover:border-red-700 border-x-2 border-transparent "
-          : "hover:after:w-0 after:left-0 before:left-4 hover:before:w-[30%]"
+          ? "hover:border-x-2 hover:after:w-[100%]  hover:before:w-[100%] after:top-0 before:right-0 hover:border-red-700 border-x-2 border-transparent "
+          : "hover:after:w-0  before:left-4 hover:before:w-[30%]"
       } group`}
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
@@ -68,7 +68,7 @@ const MenuItems = ({ menuItemsData, style, sty }) => {
             </li>
           ))}
         {menuItemsData["sup1"] && (
-          <div className="grid grid-cols-3 grid-rows-2 w-[780px] bg-white  -mt-4 ml-0 h-[410px] pl-10 pt-5 -m-3 gap-y-[65px] ">
+          <div className="grid grid-cols-3 grid-rows-2 w-[780px] -mt-3 ml-0 h-[410px] pl-10 pt-5 -m-3 gap-y-[65px] ">
             {menuItemsData.sup1.map((data, i) => (
               <li key={i} className="  ">
                 <h5>{data.title}</h5>
